@@ -1,7 +1,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
 <style>
 
   :root {
@@ -2134,33 +2133,764 @@
 
 /* ===== PAGE-SPECIFIC CSS ===== */
 
-  .hero h1 { max-width: 800px; font-size: clamp(2.6rem, 5.6vw, 5rem) !important; }
-  .stub-hero {
-    min-height: 70vh;
+  /* =====================================================
+     DIGITAL MARKETING SERVICES PAGE - PREMIUM STYLES
+     ===================================================== */
+
+  /* -- HERO: Radial Marketing Ecosystem (orbital hub) -- */
+  .orbit-mock {
+    position: absolute;
+    right: 4%;
+    top: 8rem;
+    bottom: 4rem;
+    width: 44%;
+    max-width: 560px;
+    z-index: 2;
+    opacity: 0;
+    animation: fade-up 1.1s var(--ease-out) 1s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .orbit-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    perspective: 1400px;
+  }
+  /* Ambient glow behind hub */
+  .orbit-stage::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%; height: 100%;
+    background:
+      radial-gradient(circle, rgba(197,102,185,0.35), rgba(126,77,140,0.2) 35%, transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+    animation: orbit-pulse 6s ease-in-out infinite;
+  }
+  @keyframes orbit-pulse {
+    0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.7; }
+    50%     { transform: translate(-50%,-50%) scale(1.15); opacity: 1; }
+  }
+
+  /* Concentric orbit rings */
+  .orbit-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    border: 1px dashed rgba(178,84,168,0.25);
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+  .orbit-ring.r1 { width: 62%; height: 62%; animation: orbit-rotate 30s linear infinite; }
+  .orbit-ring.r2 { width: 90%; height: 90%; animation: orbit-rotate 50s linear infinite reverse; border-color: rgba(178,84,168,0.15); }
+  @keyframes orbit-rotate {
+    from { transform: translate(-50%,-50%) rotate(0deg); }
+    to   { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+
+  /* Central hub */
+  .orbit-hub {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 36%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--magenta), var(--magenta-2));
+    box-shadow:
+      0 0 0 8px rgba(178,84,168,0.18),
+      0 0 0 18px rgba(178,84,168,0.06),
+      0 20px 60px rgba(178,84,168,0.5),
+      inset 0 0 30px rgba(255,255,255,0.18);
+    display: grid;
+    place-items: center;
+    z-index: 5;
+    animation: hub-breathe 3.5s ease-in-out infinite;
+  }
+  @keyframes hub-breathe {
+    0%,100% { transform: translate(-50%,-50%) scale(1); }
+    50%     { transform: translate(-50%,-50%) scale(1.05); }
+  }
+  .orbit-hub .hub-inner {
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+  }
+  .orbit-hub .hub-label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    opacity: 0.85;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+  }
+  .orbit-hub .hub-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .orbit-hub .hub-text em { font-style: italic; }
+
+  /* Satellite nodes */
+  .orbit-node {
+    position: absolute;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1F1730, #16101F);
+    border: 1px solid var(--border-strong);
+    display: grid;
+    place-items: center;
+    color: var(--text);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(178,84,168,0.15);
+    z-index: 4;
+    transition: transform 0.3s, box-shadow 0.4s;
+  }
+  .orbit-node:hover {
+    transform: scale(1.12);
+    box-shadow: 0 20px 40px rgba(178,84,168,0.45), 0 0 0 2px var(--magenta);
+  }
+  .orbit-node .ic {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--magenta-2);
+    letter-spacing: 0.04em;
+  }
+  .orbit-node .lbl {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.55rem;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .orbit-node::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--magenta);
+    opacity: 0;
+    animation: node-ring 3s ease-out infinite;
+  }
+  @keyframes node-ring {
+    0%   { opacity: 0.7; transform: scale(0.85); }
+    100% { opacity: 0;   transform: scale(1.4); }
+  }
+  /* Stagger the rings */
+  .orbit-node.n1::before { animation-delay: 0s; }
+  .orbit-node.n2::before { animation-delay: 0.5s; }
+  .orbit-node.n3::before { animation-delay: 1.0s; }
+  .orbit-node.n4::before { animation-delay: 1.5s; }
+  .orbit-node.n5::before { animation-delay: 2.0s; }
+  .orbit-node.n6::before { animation-delay: 2.5s; }
+
+  /* Positions of 6 satellites (clock positions: 12, 2, 4, 6, 8, 10) */
+  .orbit-node.n1 { top: 5%;  left: 50%; transform: translateX(-50%); }
+  .orbit-node.n2 { top: 22%; right: 8%; }
+  .orbit-node.n3 { bottom: 22%; right: 8%; }
+  .orbit-node.n4 { bottom: 5%; left: 50%; transform: translateX(-50%); }
+  .orbit-node.n5 { bottom: 22%; left: 8%; }
+  .orbit-node.n6 { top: 22%; left: 8%; }
+  .orbit-node.n4 .lbl,
+  .orbit-node.n1 .lbl { top: auto; }
+  .orbit-node.n4 .lbl { top: -20px; }
+
+  /* Connecting lines from hub to nodes (SVG) */
+  .orbit-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .orbit-svg .line {
+    stroke: url(#orbitLineGrad);
+    stroke-width: 1.5;
+    stroke-dasharray: 4 6;
+    opacity: 0.55;
+    animation: orbit-dash 6s linear infinite;
+  }
+  @keyframes orbit-dash {
+    to { stroke-dashoffset: -100; }
+  }
+  /* Data flow particles traveling the lines */
+  .orbit-svg .flow {
+    fill: var(--magenta-2);
+    filter: drop-shadow(0 0 4px rgba(224,166,216,0.8));
+  }
+
+  /* Floating chips around orbital map */
+  .orbit-chip {
+    position: absolute;
+    background: rgba(31,23,48,0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    padding: 0.55rem 0.95rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.66rem;
+    color: var(--text);
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+    opacity: 0;
+    z-index: 6;
+  }
+  .orbit-chip .arrow { color: #4ADE80; font-weight: 800; }
+  .orbit-chip .pip {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--magenta-2);
+    box-shadow: 0 0 8px var(--magenta-2);
+    animation: ping 1.8s infinite;
+  }
+  .orbit-chip.tl { top: -1rem; left: -2rem; animation: ochip-tl 0.8s var(--ease-out) 1.7s forwards; }
+  .orbit-chip.br { bottom: -1.2rem; right: -1.5rem; animation: ochip-br 0.8s var(--ease-out) 2.0s forwards; }
+  @keyframes ochip-tl { from { opacity: 0; transform: translateY(15px) rotate(-3deg); } to { opacity: 1; transform: translateY(0) rotate(-3deg); } }
+  @keyframes ochip-br { from { opacity: 0; transform: translateY(15px) rotate(2deg); }  to { opacity: 1; transform: translateY(0) rotate(2deg); } }
+
+  /* -- CHANNEL CARDS (integrated solutions) -- */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 1180px;
+    margin: 3rem auto 0;
+  }
+  .channel-card {
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.9rem 1.6rem;
+    transition: transform 0.5s var(--ease-out), border-color 0.4s, box-shadow 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .channel-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(197,102,185,0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.8s var(--ease-out);
+    pointer-events: none;
+  }
+  .channel-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--magenta);
+    box-shadow: 0 24px 50px rgba(178,84,168,0.18);
+  }
+  .channel-card:hover::after { transform: translateX(100%); }
+  .channel-card .ic {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--magenta), var(--violet));
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 12px 26px rgba(178,84,168,0.32);
+    transition: transform 0.5s var(--ease-out);
+  }
+  .channel-card:hover .ic { transform: rotate(-8deg) scale(1.08); }
+  .channel-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+  .channel-card h4 em { font-style: italic; color: var(--magenta); }
+  .channel-card p {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+
+  /* -- IMAGE GALLERY GRID (premium) -- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    padding: 0 4%;
+    height: 480px;
+  }
+  .g-cell {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.4);
+    transition: transform 0.5s var(--ease-out), box-shadow 0.5s;
+  }
+  .g-cell.tall { grid-row: span 2; }
+  .g-cell.wide { grid-column: span 2; }
+  .g-cell img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(1) contrast(1.05);
+    transition: transform 0.6s var(--ease-out), filter 0.5s;
+  }
+  .g-cell::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(14,10,20,0.75));
+    pointer-events: none;
+  }
+  .g-cell:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(178,84,168,0.25);
+  }
+  .g-cell:hover img {
+    transform: scale(1.08);
+    filter: saturate(1.2);
+  }
+  .g-cell .cap {
+    position: absolute;
+    bottom: 1rem; left: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(14,10,20,0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text);
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 2;
+  }
+  .g-cell .cap .tag {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.6rem;
+    color: var(--magenta-2);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+  }
+  .g-cell .cap .name {
+    font-size: 0.85rem;
+    font-family: var(--font-display);
+    color: var(--text);
+  }
+  /* Gallery image floats slightly */
+  .g-cell:nth-child(odd) { animation: gal-float 6s ease-in-out infinite; }
+  .g-cell:nth-child(even) { animation: gal-float 7s ease-in-out infinite reverse; }
+  @keyframes gal-float {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-6px); }
+  }
+  .g-cell:hover { animation-play-state: paused; }
+
+  /* -- GROWTH CHART SECTION -- */
+  .growth-section {
+    max-width: 1180px;
+    margin: 4rem auto 0;
+    background: linear-gradient(180deg, #16101F, #0E0A14);
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .growth-section::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(197,102,185,0.18), transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(126,77,140,0.18), transparent 50%);
+    pointer-events: none;
+  }
+  .growth-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+  }
+  .growth-stats h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .growth-stats h3 em { font-style: italic; color: var(--magenta); }
+  .growth-stats p { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .growth-stats .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .growth-stats .pill-row .p {
+    background: rgba(178,84,168,0.14);
+    border: 1px solid rgba(178,84,168,0.25);
+    color: var(--magenta-2);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.65rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 100px;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+  .growth-chart {
+    position: relative;
+    background: rgba(14,10,20,0.4);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.4rem 1.6rem;
+  }
+  .growth-chart-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+  .growth-chart-head .t {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+  }
+  .growth-chart-head .v {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--magenta-2);
+  }
+  .growth-chart svg { width: 100%; height: 160px; display: block; }
+  .growth-chart .grid-line { stroke: rgba(255,255,255,0.05); stroke-width: 1; }
+  .growth-chart .area1 { fill: url(#dmGradA); opacity: 0.5; }
+  .growth-chart .area2 { fill: url(#dmGradB); opacity: 0.45; }
+  .growth-chart .line1, .growth-chart .line2 {
+    fill: none;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+  }
+  .growth-chart .line1 { stroke: url(#dmGradLineA); animation: chart-draw 2s var(--ease-out) 1s forwards; }
+  .growth-chart .line2 { stroke: url(#dmGradLineB); animation: chart-draw 2s var(--ease-out) 1.4s forwards; }
+  @keyframes chart-draw { to { stroke-dashoffset: 0; } }
+  .growth-chart .dot { fill: var(--highlight); opacity: 0; animation: chart-dot 0.4s var(--ease-out) 3.2s forwards; }
+  @keyframes chart-dot { to { opacity: 1; } }
+  .growth-chart .legend {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.6rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.6rem;
+    color: var(--muted-2);
+  }
+  .growth-chart .legend i {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+  }
+  .growth-chart .legend .leg1 i { background: var(--magenta); }
+  .growth-chart .legend .leg2 i { background: var(--highlight); }
+
+  /* -- TEAM IMAGE STRIP -- */
+  .team-strip-dm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1180px;
+    margin: 4rem auto 0;
+    padding: 0 4%;
+  }
+  .team-collage {
+    position: relative;
+    aspect-ratio: 1/1.05;
+    border-radius: 22px;
+  }
+  .team-collage .ti {
+    position: absolute;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(178,84,168,0.2);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transition: transform 0.5s var(--ease-out);
+  }
+  .team-collage .ti img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.05);
+  }
+  .team-collage .ti.t1 { top: 0; left: 0; width: 55%; height: 60%; transform: rotate(-3deg); z-index: 2; }
+  .team-collage .ti.t2 { top: 8%; right: 0; width: 48%; height: 48%; transform: rotate(4deg); z-index: 3; }
+  .team-collage .ti.t3 { bottom: 0; left: 8%; width: 50%; height: 50%; transform: rotate(2deg); z-index: 4; }
+  .team-collage .ti.t4 { bottom: 8%; right: 4%; width: 42%; height: 42%; transform: rotate(-4deg); z-index: 5; }
+  .team-collage .ti:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+  .team-collage::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 70%; height: 70%;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(circle, rgba(197,102,185,0.3), transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+  }
+  .team-text-dm h2 em { font-style: italic; color: var(--magenta); }
+
+  /* -- WHY DM BENTO -- */
+  .dm-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 1180px;
+    margin: 3rem auto 0;
+  }
+  .dm-why {
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.9rem 1.6rem;
+    text-align: center;
+    transition: transform 0.5s var(--ease-out), border-color 0.4s;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 8rem 5% 4rem;
+  }
+  .dm-why:hover { transform: translateY(-6px); border-color: var(--magenta); }
+  .dm-why .ic {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--magenta), var(--violet));
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 12px 26px rgba(178,84,168,0.32);
+    transition: transform 0.5s var(--ease-out);
+  }
+  .dm-why:hover .ic { transform: rotate(-8deg) scale(1.08); }
+  .dm-why h4 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    max-width: 260px;
+  }
+  .dm-why h4 em { font-style: italic; color: var(--magenta); }
+  .dm-why p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    max-width: 280px;
+  }
+
+  /* -- FUNNEL DIAGRAM (visual flow) -- */
+  .funnel {
+    max-width: 880px;
+    margin: 4rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     position: relative;
   }
-  .stub-emoji {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(4rem, 10vw, 8rem);
-    color: var(--magenta);
-    margin-bottom: 1.5rem;
-    line-height: 1;
-    animation: stub-pulse 3s ease-in-out infinite;
+  .funnel::before {
+    content: "";
+    position: absolute;
+    top: 30%; left: 8%; right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--magenta), var(--magenta-2));
+    opacity: 0.3;
+    z-index: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: funnel-line 1.5s var(--ease-out) 0.3s forwards;
   }
-  @keyframes stub-pulse {
-    0%,100% { transform: scale(1) rotate(-3deg); opacity: 0.85; }
-    50%     { transform: scale(1.08) rotate(3deg); opacity: 1; }
+  @keyframes funnel-line { to { transform: scaleX(1); } }
+  .funnel-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .funnel-step .circle {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--magenta), var(--violet));
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin: 0 auto 0.9rem;
+    border: 3px solid var(--bg);
+    box-shadow: 0 12px 26px rgba(178,84,168,0.4);
+    opacity: 0;
+    transform: scale(0.6);
+    animation: funnel-pop 0.5s var(--ease-out) forwards;
+  }
+  .funnel-step:nth-child(1) .circle { animation-delay: 0.5s; }
+  .funnel-step:nth-child(2) .circle { animation-delay: 0.8s; }
+  .funnel-step:nth-child(3) .circle { animation-delay: 1.1s; }
+  .funnel-step:nth-child(4) .circle { animation-delay: 1.4s; }
+  @keyframes funnel-pop {
+    0% { opacity: 0; transform: scale(0.6); }
+    70% { opacity: 1; transform: scale(1.15); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  .funnel-step h5 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .funnel-step p {
+    font-size: 0.75rem;
+    color: var(--muted-2);
+    line-height: 1.4;
+  }
+
+  /* -- SECTION BREAK -- */
+  .dm-break {
+    text-align: center;
+    max-width: 980px;
+    margin: 5rem auto 0;
+    padding: 3rem 2.5rem;
+    background: linear-gradient(135deg, #1A0E28, #2A1240);
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .dm-break::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(197,102,185,0.22), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(126,77,140,0.25), transparent 50%);
+    pointer-events: none;
+  }
+  .dm-break p {
+    position: relative;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+    line-height: 1.5;
+  }
+  .dm-break p em { font-style: italic; color: var(--magenta-2); }
+
+  /* -- FAQ CENTERED -- */
+  #faq { text-align: center; }
+  #faq .reveal:first-child { text-align: center; }
+  .faq-list { max-width: 780px; margin: 3rem auto 0; }
+  .faq-list .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-list .faq-q {
+    width: 100%;
+    background: none; border: none;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    font-weight: 400;
+    text-align: center;
+    padding: 1.6rem 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-list .faq-q em { font-style: italic; color: var(--magenta); }
+  .faq-list .faq-q:hover { color: var(--magenta); }
+  .faq-list .faq-q .faq-icon {
+    width: 32px; height: 32px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    color: var(--magenta);
+    font-size: 1.1rem;
+    transition: transform 0.4s var(--ease-out), background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .faq-list .faq-q .faq-icon::before { content: "+"; }
+  .faq-list .faq-item.open .faq-q .faq-icon {
+    transform: rotate(45deg);
+    background: var(--magenta);
+    color: #fff;
+    border-color: var(--magenta);
+  }
+  .faq-list .faq-a {
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s var(--ease-out), padding 0.4s, opacity 0.3s;
+    padding-bottom: 0;
+    opacity: 0;
+    text-align: center;
+  }
+  .faq-list .faq-a p { max-width: 640px; margin: 0 auto; }
+  .faq-list .faq-item.open .faq-a {
+    max-height: 400px;
+    padding-bottom: 1.6rem;
+    opacity: 1;
+  }
+
+  /* Hero h1 */
+  .hero h1 { max-width: 580px; font-size: clamp(2.4rem, 5vw, 4.4rem) !important; }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .orbit-mock { display: none; }
+    .channel-grid, .dm-why-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      height: auto;
+    }
+    .g-cell.tall { grid-row: span 1; }
+    .g-cell.wide { grid-column: span 2; }
+    .g-cell { aspect-ratio: 4/3; }
+    .growth-row { grid-template-columns: 1fr; gap: 1.5rem; }
+    .team-strip-dm { grid-template-columns: 1fr; }
+    .team-collage { max-width: 480px; margin: 0 auto; }
+    .funnel { grid-template-columns: 1fr 1fr; }
+    .funnel::before { display: none; }
+  }
+  @media (max-width: 768px) {
+    .channel-grid, .dm-why-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .g-cell.wide { grid-column: span 1; }
+    .funnel { grid-template-columns: 1fr; }
   }
 
 </style>
-
 
 
 <!-- SCROLL PROGRESS -->
@@ -2255,29 +2985,422 @@
   <a href="contact.html" class="cta-btn"><span>Get a Free Quote</span></a>
 </div>
 
-<section class="stub-hero">
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
   <div class="hero-blob" id="heroBlob"></div>
   <div class="hero-blob-2"></div>
 
-  <div class="hero-pill">
-    <span class="live-dot"></span>
-    Coming soon
+  <div class="hero-content">
+    <div class="hero-pill">
+      <span class="live-dot"></span>
+      300+ marketing experts ready
+    </div>
+
+    <h1>
+      <span class="word"><span>Comprehensive</span></span><br>
+      <span class="word"><span><em>Digital Marketing</em></span></span><br>
+      <span class="word"><span>Services for Growth</span></span>
+    </h1>
+
+    <p class="hero-sub">Cirova Studio delivers performance-focused digital marketing services designed to help businesses increase visibility, generate qualified leads, and build sustainable online growth through integrated marketing strategies, creative execution, and data-driven campaign management.</p>
+
+    <div class="hero-ctas">
+      <a href="contact.html" class="cta-btn large" data-cursor><span>Start Your Digital Strategy</span></a>
+      <a href="contact.html" class="btn-outline" data-cursor>
+        Request Marketing Consultation
+        <span class="arrow-circle">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <div class="trust-bar">
+      <div class="trust-item">
+        <div class="num" data-count="300">0<em>+</em></div>
+        <p>Marketing Experts</p>
+      </div>
+      <div class="trust-item">
+        <div class="num" data-count="6">0<em></em></div>
+        <p>Core Channels</p>
+      </div>
+      <div class="trust-item">
+        <div class="num" data-count="500">0<em>+</em></div>
+        <p>Campaigns Live</p>
+      </div>
+      <div class="trust-item">
+        <div class="num" data-count="98">0<em>%</em></div>
+        <p>Retention Rate</p>
+      </div>
+    </div>
   </div>
 
-  <div class="stub-emoji">DM</div>
+  <!-- HERO MOCKUP: Radial Marketing Ecosystem -->
+  <div class="orbit-mock" aria-hidden="true">
+    <div class="orbit-stage">
+      <div class="orbit-ring r1"></div>
+      <div class="orbit-ring r2"></div>
 
-  <h1 style="text-align: center;">
-    <span class="word"><span>Digital Marketing</span></span> <span class="word"><span><em>Services</em></span></span>
-  </h1>
+      <!-- SVG connecting lines from hub to satellites -->
+      <svg class="orbit-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="orbitLineGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#C566B9" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#E0A6D8" stop-opacity="0.3"/>
+          </linearGradient>
+        </defs>
+        <line class="line" x1="50" y1="50" x2="50" y2="11"/>
+        <line class="line" x1="50" y1="50" x2="83" y2="29"/>
+        <line class="line" x1="50" y1="50" x2="83" y2="71"/>
+        <line class="line" x1="50" y1="50" x2="50" y2="89"/>
+        <line class="line" x1="50" y1="50" x2="17" y2="71"/>
+        <line class="line" x1="50" y1="50" x2="17" y2="29"/>
 
-  <p class="hero-sub" style="max-width: 640px; margin: 1.5rem auto 0; text-align: center;">
-    Full-funnel digital marketing combining SEO, content, paid ads, social, and analytics into one coordinated growth strategy. Detailed page coming soon &mdash; book a discovery call below.
+        <!-- Data flow particles -->
+        <circle class="flow" r="1.4">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M 50,50 L 50,11"/>
+        </circle>
+        <circle class="flow" r="1.4">
+          <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.4s" path="M 50,50 L 83,29"/>
+        </circle>
+        <circle class="flow" r="1.4">
+          <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.8s" path="M 50,50 L 83,71"/>
+        </circle>
+        <circle class="flow" r="1.4">
+          <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.2s" path="M 50,50 L 50,89"/>
+        </circle>
+        <circle class="flow" r="1.4">
+          <animateMotion dur="3s" repeatCount="indefinite" begin="1.6s" path="M 50,50 L 17,71"/>
+        </circle>
+        <circle class="flow" r="1.4">
+          <animateMotion dur="3.3s" repeatCount="indefinite" begin="2.0s" path="M 50,50 L 17,29"/>
+        </circle>
+      </svg>
+
+      <!-- Central hub -->
+      <div class="orbit-hub">
+        <div class="hub-inner">
+          <div class="hub-label">Your Brand</div>
+          <div class="hub-text"><em>Growth</em></div>
+        </div>
+      </div>
+
+      <!-- 6 satellite channels -->
+      <div class="orbit-node n1"><span class="ic">SEO</span><span class="lbl">Search</span></div>
+      <div class="orbit-node n2"><span class="ic">ADS</span><span class="lbl">Paid Media</span></div>
+      <div class="orbit-node n3"><span class="ic">CNT</span><span class="lbl">Content</span></div>
+      <div class="orbit-node n4"><span class="ic">SOC</span><span class="lbl">Social</span></div>
+      <div class="orbit-node n5"><span class="ic">WEB</span><span class="lbl">Website</span></div>
+      <div class="orbit-node n6"><span class="ic">DAT</span><span class="lbl">Analytics</span></div>
+    </div>
+
+    <div class="orbit-chip tl"><span class="pip"></span>INTEGRATED ECOSYSTEM</div>
+    <div class="orbit-chip br"><span class="arrow">&uarr;</span>300+ EXPERTS LIVE</div>
+  </div>
+</section>
+
+<!-- ============ INTEGRATED MARKETING SERVICES ============ -->
+<section id="overview" style="text-align: center;">
+  <div class="reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Modern Businesses</div>
+    <h2 class="section-title" style="text-align: center; max-width: 900px; margin: 0 auto;">Integrated Digital Marketing Services <em>for Modern Businesses.</em></h2>
+    <p class="section-sub" style="text-align: center; max-width: 760px; margin: 1.4rem auto 0;">Our digital marketing services combine strategy, creativity, and technology to help businesses grow their online presence and reach the right audience at the right time. Today&rsquo;s digital environment requires more than isolated campaigns &mdash; it demands coordinated marketing systems.</p>
+  </div>
+
+  <div style="max-width: 880px; margin: 2.5rem auto 0; color: var(--muted); line-height: 1.75; text-align: center;" class="reveal">
+    <p>Cirova Studio operates with a team of <strong style="color: var(--text);">300+ marketing experts, strategists, designers, developers, and analysts</strong> who collaborate to build scalable marketing ecosystems for businesses across industries.</p>
+  </div>
+
+  <!-- 6 Channel Cards -->
+  <div class="channel-grid reveal" style="text-align: left;">
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">SEO</div>
+      <h4>Search Engine <em>Optimization</em></h4>
+      <p>Search engine optimization and SEO digital marketing &mdash; strategic optimization practices that improve website visibility and organic traffic.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">ADS</div>
+      <h4>Paid <em>Advertising</em></h4>
+      <p>Paid advertising and performance campaigns across search engines and social media platforms to generate qualified leads.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">SOC</div>
+      <h4>Social Media <em>Marketing</em></h4>
+      <p>Social media marketing and brand engagement that builds audience engagement and drives targeted traffic.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">CNT</div>
+      <h4>Content <em>Marketing</em></h4>
+      <p>Content marketing and conversion-focused writing that aligns with search intent and strengthens brand voice.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">WEB</div>
+      <h4>Website Design &amp; <em>Development</em></h4>
+      <p>Website design, development, and optimization &mdash; improving structure, speed, and user experience for conversion.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">DAT</div>
+      <h4>Analytics &amp; <em>Growth Strategy</em></h4>
+      <p>Analytics, reporting, and growth strategy &mdash; data-driven insights that turn marketing performance into measurable growth.</p>
+    </div>
+  </div>
+
+  <p style="max-width: 800px; margin: 2.5rem auto 0; color: var(--muted); line-height: 1.7; text-align: center;" class="reveal">
+    Businesses exploring options between a digital marketing agency and a full-service digital marketing company often choose Cirova Studio because our approach integrates multiple marketing disciplines under one strategic framework.
+  </p>
+</section>
+
+<!-- ============ IMAGE GALLERY (premium visual strip) ============ -->
+<div class="gallery-grid reveal" aria-hidden="true">
+  <div class="g-cell tall">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80&auto=format&fit=crop" alt="">
+    <div class="cap"><span class="tag">STRATEGY</span><span class="name">Planning</span></div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=600&q=80&auto=format&fit=crop" alt="">
+    <div class="cap"><span class="tag">ANALYTICS</span><span class="name">Insights</span></div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=600&q=80&auto=format&fit=crop" alt="">
+    <div class="cap"><span class="tag">TEAM</span><span class="name">Collaboration</span></div>
+  </div>
+  <div class="g-cell wide">
+    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=80&auto=format&fit=crop" alt="">
+    <div class="cap"><span class="tag">EXECUTION</span><span class="name">Campaign workshops</span></div>
+  </div>
+</div>
+
+<!-- ============ FULL-SPECTRUM SUPPORT ============ -->
+<section id="capabilities" style="text-align: center;">
+  <div class="reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Scalable Growth</div>
+    <h2 class="section-title" style="text-align: center; max-width: 900px; margin: 0 auto;">Full-Spectrum Marketing Support <em>for Scalable Growth.</em></h2>
+    <p class="section-sub" style="text-align: center; max-width: 760px; margin: 1.4rem auto 0;">Cirova Studio provides structured marketing support designed to help businesses grow consistently across multiple channels. Our strategies combine creative production, performance marketing, and technical optimization.</p>
+  </div>
+
+  <div class="channel-grid reveal" style="text-align: left; margin-top: 2.5rem;">
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">01</div>
+      <h4>Search Engine Optimization &amp; <em>Visibility Growth</em></h4>
+      <p>Our specialists implement strategic optimization practices that improve website visibility, increase organic traffic, and strengthen long-term digital authority through structured internet marketing strategies.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">02</div>
+      <h4>Performance Advertising &amp; <em>Paid Campaigns</em></h4>
+      <p>We design data-driven campaigns across search engines and social media platforms to generate qualified leads and measurable conversions.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">03</div>
+      <h4>Social Media Marketing &amp; <em>Brand Engagement</em></h4>
+      <p>Our team manages strategic social media campaigns that build audience engagement, improve brand awareness, and drive targeted traffic.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">04</div>
+      <h4>Content &amp; <em>Conversion-Focused Messaging</em></h4>
+      <p>Our writers and strategists develop high-impact content that aligns with search intent, strengthens brand voice, and improves marketing performance.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">05</div>
+      <h4>Website Development &amp; <em>Conversion Optimization</em></h4>
+      <p>Our developers and UX specialists improve website structure, speed, and user experience to ensure marketing campaigns convert visitors into customers.</p>
+    </div>
+    <div class="channel-card tilt-on-hover">
+      <div class="ic">06</div>
+      <h4>Integrated <em>Marketing Systems</em></h4>
+      <p>Businesses often begin by searching for digital marketing companies near me but choose Cirova Studio for integrated strategies and scalable marketing systems.</p>
+    </div>
+  </div>
+
+  <div class="hero-ctas" style="justify-content: center; margin-top: 3rem;">
+    <a href="contact.html" class="cta-btn large" data-cursor><span>Build Your Marketing Strategy</span></a>
+    <a href="contact.html" class="btn-outline" data-cursor>
+      Work With Marketing Experts
+      <span class="arrow-circle">
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ GROWTH CHART SECTION ============ -->
+<section style="padding: 0 4%;">
+  <div class="growth-section reveal" aria-hidden="false">
+    <div class="growth-row">
+      <div class="growth-stats">
+        <div class="section-eyebrow" style="justify-content:flex-start; margin-bottom: 1rem;">Growth Snapshot</div>
+        <h3>Numbers that <em>compound</em> over time.</h3>
+        <p>A coordinated marketing system delivers measurable lift across every channel &mdash; not just one. Here&rsquo;s what consistent multi-channel optimization typically delivers in the first 12 months.</p>
+        <div class="pill-row">
+          <span class="p">+420% TRAFFIC</span>
+          <span class="p">+8.4x LEADS</span>
+          <span class="p">+62% CTR</span>
+          <span class="p">98% RETENTION</span>
+        </div>
+      </div>
+      <div class="growth-chart">
+        <div class="growth-chart-head">
+          <span class="t">Growth Index &middot; 12 Months</span>
+          <span class="v">+ 420%</span>
+        </div>
+        <svg viewBox="0 0 600 160" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="dmGradA" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C566B9" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#C566B9" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="dmGradB" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#E0A6D8" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#E0A6D8" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="dmGradLineA" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7E4D8C"/>
+              <stop offset="100%" stop-color="#C566B9"/>
+            </linearGradient>
+            <linearGradient id="dmGradLineB" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#B254A8"/>
+              <stop offset="100%" stop-color="#E0A6D8"/>
+            </linearGradient>
+          </defs>
+          <line class="grid-line" x1="0" y1="40" x2="600" y2="40"/>
+          <line class="grid-line" x1="0" y1="80" x2="600" y2="80"/>
+          <line class="grid-line" x1="0" y1="120" x2="600" y2="120"/>
+          <path class="area1" d="M0,130 L50,124 L100,116 L150,108 L200,98 L250,86 L300,72 L350,58 L400,48 L450,38 L500,28 L550,18 L600,10 L600,160 L0,160 Z"/>
+          <path class="area2" d="M0,140 L50,138 L100,132 L150,128 L200,118 L250,108 L300,96 L350,84 L400,72 L450,62 L500,52 L550,40 L600,30 L600,160 L0,160 Z"/>
+          <path class="line1" d="M0,130 L50,124 L100,116 L150,108 L200,98 L250,86 L300,72 L350,58 L400,48 L450,38 L500,28 L550,18 L600,10"/>
+          <path class="line2" d="M0,140 L50,138 L100,132 L150,128 L200,118 L250,108 L300,96 L350,84 L400,72 L450,62 L500,52 L550,40 L600,30"/>
+          <circle class="dot" cx="600" cy="10" r="5"/>
+          <circle class="dot" cx="600" cy="30" r="4" style="animation-delay: 3.4s;"/>
+        </svg>
+        <div class="legend">
+          <span class="leg1"><i></i>Visibility &amp; Leads</span>
+          <span class="leg2"><i></i>Conversions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM STRIP (300+ Experts) ============ -->
+<section id="team" style="text-align: center;">
+  <div class="reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Our Team</div>
+    <h2 class="section-title" style="text-align: center; max-width: 1000px; margin: 0 auto;">300+ Marketing Experts <em>Driving Digital Growth.</em></h2>
+  </div>
+
+  <div class="team-strip-dm reveal">
+    <div class="team-collage">
+      <div class="ti t1"><img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=600&q=80&auto=format&fit=crop" alt=""></div>
+      <div class="ti t2"><img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=400&q=80&auto=format&fit=crop" alt=""></div>
+      <div class="ti t3"><img src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=400&q=80&auto=format&fit=crop" alt=""></div>
+      <div class="ti t4"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&q=80&auto=format&fit=crop" alt=""></div>
+    </div>
+    <div class="team-text-dm" style="text-align: left;">
+      <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.02em; color: var(--text);">One unified team &mdash; <em>every discipline</em> under one roof.</h2>
+      <p style="color: var(--muted); line-height: 1.75; margin-bottom: 1rem;">Cirova Studio operates with a collaborative team of <strong style="color: var(--text);">300+ specialists</strong> including strategists, designers, developers, content creators, and campaign managers.</p>
+      <p style="color: var(--muted); line-height: 1.75; margin-bottom: 1rem;">Each project is supported by professionals who understand audience behavior, search algorithms, advertising platforms, and conversion optimization.</p>
+      <p style="color: var(--muted); line-height: 1.75; margin-bottom: 1rem;">Many businesses searching for digital marketing near me discover that working with a structured marketing team provides stronger insights, broader expertise, and more reliable results than fragmented services.</p>
+      <p style="color: var(--muted); line-height: 1.75;">Our integrated team structure allows us to deliver digital marketing services that support startups, growing brands, and enterprise-level businesses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEED MORE THAN ONE SERVICE? + FUNNEL ============ -->
+<section id="multi-service" style="text-align: center;">
+  <div class="reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Multi-Service</div>
+    <h2 class="section-title" style="text-align: center; max-width: 900px; margin: 0 auto;">Need More Than <em>One Marketing Service?</em></h2>
+    <p class="section-sub" style="text-align: center; max-width: 800px; margin: 1.4rem auto 0;">If your business requires multiple marketing solutions, we create custom growth support plans that combine creative production, content development, paid media campaigns, and website optimization into one coordinated workflow.</p>
+  </div>
+
+  <!-- 4-step funnel diagram -->
+  <div class="funnel reveal">
+    <div class="funnel-step">
+      <div class="circle">01</div>
+      <h5>Strategy</h5>
+      <p>Goals, audience, channel mix</p>
+    </div>
+    <div class="funnel-step">
+      <div class="circle">02</div>
+      <h5>Execution</h5>
+      <p>Multi-channel campaign launch</p>
+    </div>
+    <div class="funnel-step">
+      <div class="circle">03</div>
+      <h5>Monitor</h5>
+      <p>Performance tracking &amp; insights</p>
+    </div>
+    <div class="funnel-step">
+      <div class="circle">04</div>
+      <h5>Optimize</h5>
+      <p>Continuous refinement &amp; scale</p>
+    </div>
+  </div>
+
+  <div style="max-width: 880px; margin: 2.5rem auto 0; color: var(--muted); line-height: 1.75; text-align: center;" class="reveal">
+    <p style="margin-bottom: 1.2rem;">Instead of working with several vendors, businesses collaborate with one experienced team that manages strategy, execution, performance monitoring, and ongoing optimization under a unified marketing framework.</p>
+    <p style="margin-bottom: 1.2rem;">This integrated approach improves operational efficiency, maintains consistent brand messaging across channels, and enables businesses to scale campaigns without unnecessary complexity or fragmented communication.</p>
+    <p>Our digital marketing services are designed to build unified marketing ecosystems that support sustainable visibility, lead generation, and long-term business growth.</p>
+  </div>
+
+  <div class="hero-ctas" style="justify-content: center; margin-top: 2.5rem;">
+    <a href="contact.html" class="cta-btn large" data-cursor><span>Build Custom Marketing Plan</span></a>
+    <a href="contact.html" class="btn-outline" data-cursor>
+      Get Growth Strategy
+      <span class="arrow-circle">
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ WHY BUSINESSES CHOOSE CIROVA ============ -->
+<section id="why" style="text-align: center;">
+  <div class="reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Why Cirova</div>
+    <h2 class="section-title" style="text-align: center; max-width: 900px; margin: 0 auto;">Why Businesses <em>Choose Cirova Studio.</em></h2>
+    <p class="section-sub" style="text-align: center; max-width: 760px; margin: 1.4rem auto 0;">Companies choose our digital marketing services because we combine strategic planning, creative execution, and performance analysis to deliver measurable results.</p>
+  </div>
+
+  <div class="dm-why-grid reveal">
+    <div class="dm-why tilt-on-hover">
+      <div class="ic">300+</div>
+      <h4>Large team of <em>specialized experts</em></h4>
+      <p>Strategists, content creators, developers, advertising specialists, and analysts collaborate to execute complex marketing campaigns efficiently.</p>
+    </div>
+    <div class="dm-why tilt-on-hover">
+      <div class="ic">ECO</div>
+      <h4>Integrated <em>ecosystem approach</em></h4>
+      <p>Instead of isolated tactics, we build connected marketing systems that combine content, paid media, SEO, and website optimization into a unified strategy.</p>
+    </div>
+    <div class="dm-why tilt-on-hover">
+      <div class="ic">DATA</div>
+      <h4>Data-driven <em>decision making</em></h4>
+      <p>Every marketing campaign is supported by analytics, performance tracking, and continuous optimization to ensure strategies evolve based on measurable results.</p>
+    </div>
+    <div class="dm-why tilt-on-hover">
+      <div class="ic">FLEX</div>
+      <h4>Flexible <em>solutions for any stage</em></h4>
+      <p>Our marketing strategies support startups launching new campaigns, growing companies scaling marketing operations, and established brands optimizing existing systems.</p>
+    </div>
+    <div class="dm-why tilt-on-hover">
+      <div class="ic">RPT</div>
+      <h4>Transparent <em>communication</em></h4>
+      <p>Clients receive clear insights into marketing performance, campaign progress, and growth metrics through structured reporting and strategic consultations.</p>
+    </div>
+    <div class="dm-why tilt-on-hover">
+      <div class="ic">LT</div>
+      <h4>Long-term <em>partnership</em></h4>
+      <p>We focus on building sustainable marketing systems that continue generating visibility, engagement, and conversions over time.</p>
+    </div>
+  </div>
+
+  <p style="max-width: 760px; margin: 2.5rem auto 0; color: var(--muted); line-height: 1.7; text-align: center;" class="reveal">
+    Businesses evaluating a digital marketing consultant or agency partner often choose Cirova Studio because of our collaborative approach and scalable marketing capabilities.
   </p>
 
-  <div class="hero-ctas" style="justify-content: center; margin-top: 2rem;">
-    <a href="contact.html" class="cta-btn large" data-cursor><span>Talk to Our Team</span></a>
+  <div class="hero-ctas" style="justify-content: center; margin-top: 2.5rem;">
+    <a href="contact.html" class="cta-btn large" data-cursor><span>Work With Marketing Experts</span></a>
     <a href="contact.html" class="btn-outline" data-cursor>
-      Request Custom Proposal
+      Start Your Growth Plan
       <span class="arrow-circle">
         <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
@@ -2285,14 +3408,21 @@
   </div>
 </section>
 
-<!-- CTA BANNER -->
+<!-- ============ SECTION BREAK ============ -->
+<section style="padding: 0 4%;">
+  <div class="dm-break reveal">
+    <p>Modern businesses require <em>integrated strategies</em> to compete in the digital landscape. Cirova Studio provides scalable digital marketing services that combine strategy, technology, and creativity to help brands grow their <em>online presence.</em></p>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
 <section class="cta-banner" id="contact">
-  <h2>Ready to build your <em>next project</em>?</h2>
-  <p>Drop us a message and our team will reach out within one business day to discuss your goals.</p>
+  <h2>Build Your Growth Strategy <em>With Cirova Studio.</em></h2>
+  <p>If you are looking for professional digital marketing services, our team of 300+ specialists provides strategic planning, campaign management, and performance optimization designed to support long-term business growth.</p>
   <div class="hero-ctas" style="justify-content: center;">
-    <a href="mailto:cirovastudio@gmail.com" class="cta-btn large" data-cursor><span>Email Cirova Studio</span></a>
-    <a href="tel:+919877147660" class="btn-outline" data-cursor>
-      Call +91 9877147660
+    <a href="contact.html" class="cta-btn large" data-cursor><span>Request Marketing Proposal</span></a>
+    <a href="contact.html" class="btn-outline" data-cursor>
+      Start Your Project
       <span class="arrow-circle">
         <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
@@ -2300,6 +3430,61 @@
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="reveal">
+    <div class="section-eyebrow">Common Questions</div>
+    <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+  </div>
+
+  <div class="faq-list reveal" id="faqList">
+    <div class="faq-item">
+      <button class="faq-q" data-cursor>
+        <span>What do <em>digital marketing</em> services include?</span>
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-a">
+        <p>Professional digital marketing services include SEO optimization, content marketing, social media management, paid advertising, website optimization, and analytics reporting to help businesses increase visibility, attract leads, and grow online.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" data-cursor>
+        <span>Why should businesses hire a <em>digital marketing agency</em>?</span>
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-a">
+        <p>A professional digital marketing agency provides strategic planning, campaign management, and performance analysis that help businesses reach targeted audiences, improve visibility, and generate measurable marketing results.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" data-cursor>
+        <span>How large is the Cirova Studio <em>marketing team</em>?</span>
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-a">
+        <p>Cirova Studio operates with a team of more than 300 marketing specialists including strategists, designers, developers, and analysts who collaborate to deliver integrated marketing solutions.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" data-cursor>
+        <span>Can <em>small businesses</em> benefit from digital marketing?</span>
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-a">
+        <p>Yes. Digital marketing strategies allow small businesses to target specific audiences, control marketing budgets, and compete effectively by using search engines, social media platforms, and targeted advertising.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" data-cursor>
+        <span>How long does it take to see <em>results</em> from digital marketing?</span>
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-a">
+        <p>Results vary depending on strategy and industry. Paid advertising can generate immediate traffic, while SEO and organic marketing typically deliver stronger results over several months of consistent optimization.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -2350,7 +3535,6 @@
     <h2>Cirova<em>Studio</em>&trade;</h2>
   </div>
 </footer>
-
 <script>
 
 (function () {
