@@ -63,7 +63,7 @@
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; }
 
-  /* ─── PAGE LOADER ─── */
+  /* --- PAGE LOADER --- */
   .page-loader {
     position: fixed; inset: 0;
     background: var(--bg);
@@ -79,7 +79,7 @@
   @keyframes loader-spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
   @keyframes loader-pulse { 0%,100%{opacity:0.7} 50%{opacity:1} }
 
-  /* ─── CUSTOM CURSOR ─── */
+  /* --- CUSTOM CURSOR --- */
   .cursor-dot, .cursor-ring {
     position: fixed; top: 0; left: 0;
     pointer-events: none;
@@ -98,11 +98,11 @@
     border: 1px solid var(--text);
     border-radius: 50%;
   }
-  /* Hover state intentionally minimal — cursor stays as default small ring */
+  /* Hover state intentionally minimal &mdash; cursor stays as default small ring */
   .cursor-ring.hover-label::after { content: none; }
   @media (max-width: 900px) { .cursor-dot, .cursor-ring { display: none; } }
 
-  /* ─── HEADER ─── */
+  /* --- HEADER --- */
   header {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
@@ -231,7 +231,7 @@
   .mobile-nav a em { font-style: italic; color: var(--magenta); }
   .mobile-nav .cta-btn { margin-top: 1rem; align-self: flex-start; }
 
-  /* ─── HERO ─── */
+  /* --- HERO --- */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -296,7 +296,7 @@
     100% { transform: translateY(100%); }
   }
 
-  /* Rotating "Watch Reel" disc — top right */
+  /* Rotating "Watch Reel" disc &mdash; top right */
   .hero-reel {
     position: absolute;
     top: 8rem; right: 4%;
@@ -581,7 +581,7 @@
   }
   .trust-item p { color: var(--muted); font-size: 0.78rem; margin-top: 0.4rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
-  /* ─── LOGO MARQUEE ─── */
+  /* --- LOGO MARQUEE --- */
   .logo-marquee {
     padding: 3rem 0;
     border-top: 1px solid var(--border);
@@ -618,7 +618,7 @@
     to { transform: translateX(-50%); }
   }
 
-  /* ─── SECTIONS ─── */
+  /* --- SECTIONS --- */
   section { padding: 2rem 4%; position: relative; }
 
   .section-eyebrow {
@@ -657,7 +657,7 @@
     margin-bottom: 0.8rem;
   }
 
-  /* ─── WHAT WE DO (PINNED SCROLL FEEL) ─── */
+  /* --- WHAT WE DO (PINNED SCROLL FEEL) --- */
   .what-we-do {
     background: var(--surface);
     position: relative;
@@ -709,8 +709,8 @@
   }
   .what-header .section-title { margin-left: auto; margin-right: auto; }
   .what-header .section-sub { margin-left: auto; margin-right: auto; max-width: 720px; }
-  .what-header .section-eyebrow::before { content: '—'; background: transparent; width: auto; margin-right: 0.4rem; }
-  .what-header .section-eyebrow::after { content: '—'; margin-left: 0.4rem; }
+  .what-header .section-eyebrow::before { content: '&mdash;'; background: transparent; width: auto; margin-right: 0.4rem; }
+  .what-header .section-eyebrow::after { content: '&mdash;'; margin-left: 0.4rem; }
   .what-we-do-grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
@@ -788,7 +788,7 @@
     z-index: 2;
   }
 
-  /* ─── SERVICES GRID ─── */
+  /* --- SERVICES GRID --- */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -847,7 +847,7 @@
   }
   .service-card:hover .service-card-arrow { gap: 0.7rem; }
 
-  /* ─── INFINITE TEXT MARQUEE ─── */
+  /* --- INFINITE TEXT MARQUEE --- */
   .marquee-band {
     overflow: hidden;
     background: var(--magenta);
@@ -871,7 +871,7 @@
   .marquee-band-track span em { font-style: italic; }
   .marquee-band-track .dot { color: rgba(14,10,20,0.4); }
 
-  /* ─── WORK / PORTFOLIO MOSAIC ─── */
+  /* --- WORK / PORTFOLIO MOSAIC --- */
   .work-section { background: var(--bg); }
   .work-grid {
     display: grid;
@@ -925,7 +925,7 @@
     letter-spacing: -0.01em;
   }
 
-  /* ─── WHY US (COUNTER STATS) ─── */
+  /* --- WHY US (COUNTER STATS) --- */
   .why-us {
     background: linear-gradient(180deg, var(--bg), var(--surface));
   }
@@ -1041,7 +1041,7 @@
   }
   .why-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
 
-  /* ─── PROCESS (HORIZONTAL 4-CARD LAYOUT) ─── */
+  /* --- PROCESS (HORIZONTAL 4-CARD LAYOUT) --- */
   .process-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1110,7 +1110,7 @@
     .process-card-num { box-shadow: 0 0 0 4px var(--bg); }
   }
 
-  /* ─── AUDIENCE TAGS ─── */
+  /* --- AUDIENCE TAGS --- */
   .audience-section { background: var(--surface); }
   .audience-grid-wrap {
     display: grid;
@@ -1223,7 +1223,7 @@
     transform: translateY(-2px);
   }
 
-  /* ─── SECTION BREAKER (magenta italic band between Audience and SEO) ─── */
+  /* --- SECTION BREAKER (magenta italic band between Audience and SEO) --- */
   .section-breaker {
     background: var(--magenta);
     padding: 2.2rem 0;
@@ -1250,7 +1250,7 @@
   .section-breaker-track span em { font-style: italic; }
   .section-breaker-track .dot { color: rgba(14,10,20,0.4); }
 
-  /* ─── SEO / SEARCH ENVIRONMENT SECTION ─── */
+  /* --- SEO / SEARCH ENVIRONMENT SECTION --- */
   .seo-section {
     background: var(--bg);
   }
@@ -1444,7 +1444,7 @@
     display: block;
   }
 
-  /* ─── TESTIMONIALS ─── */
+  /* --- TESTIMONIALS --- */
   .testimonials {
     background: var(--bg);
     overflow: hidden;
@@ -1491,7 +1491,7 @@
   .test-author .name { font-weight: 600; font-size: 0.9rem; }
   .test-author .role { color: var(--muted); font-size: 0.8rem; }
 
-  /* ─── CTA BANNER ─── */
+  /* --- CTA BANNER --- */
   .cta-banner {
     text-align: center;
     background: var(--bg);
@@ -1523,7 +1523,7 @@
   .cta-banner p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem; }
   .cta-banner-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-  /* ─── FAQ ─── */
+  /* --- FAQ --- */
   .faq-section { background: var(--surface); }
   .faq-grid { max-width: 880px; margin: 3rem auto 0; }
   .faq-item { border-bottom: 1px solid var(--border); }
@@ -1577,7 +1577,7 @@
   }
   .faq-item.open .faq-a { max-height: 400px; padding-bottom: 1.8rem; opacity: 1; }
 
-  /* ─── FOOTER ─── */
+  /* --- FOOTER --- */
   footer {
     background: var(--bg);
     padding: 3rem 4% 1.5rem;
@@ -1670,7 +1670,7 @@
   .footer-bottom a { transition: color 0.2s; }
   .footer-bottom a:hover { color: var(--magenta); }
 
-  /* ─── BIG OUTRO TEXT (signature superside touch) ─── */
+  /* --- BIG OUTRO TEXT (signature superside touch) --- */
   .outro-text {
     padding: 3rem 4% 2rem;
     text-align: center;
@@ -1693,7 +1693,7 @@
   }
   .outro-text h2 em { font-style: italic; }
 
-  /* ─── REVEAL ANIMATIONS ─── */
+  /* --- REVEAL ANIMATIONS --- */
   .reveal {
     opacity: 0;
     transform: translateY(10px);
@@ -1701,7 +1701,7 @@
   }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
-  /* Premium section title reveal — subtle scale, minimal Y drop */
+  /* Premium section title reveal &mdash; subtle scale, minimal Y drop */
   .section-title {
     transform: translateY(8px) scale(0.99);
     opacity: 0;
@@ -1727,7 +1727,7 @@
     transform: translateY(0);
   }
 
-  /* ─── SCROLL PROGRESS BAR ─── */
+  /* --- SCROLL PROGRESS BAR --- */
   .scroll-progress {
     position: fixed;
     top: 0; left: 0;
@@ -1740,7 +1740,7 @@
     pointer-events: none;
   }
 
-  /* ─── CARD 3D TILT ─── */
+  /* --- CARD 3D TILT --- */
   .tilt-on-hover {
     transform-style: preserve-3d;
     transition: transform 0.45s var(--ease-out);
@@ -1750,7 +1750,7 @@
     .tilt-on-hover { transform: none !important; }
   }
 
-  /* ─── AMBIENT GRADIENT BLOBS (per-section accent) ─── */
+  /* --- AMBIENT GRADIENT BLOBS (per-section accent) --- */
   .section-blob {
     position: absolute;
     border-radius: 50%;
@@ -1774,7 +1774,7 @@
   .why-us, .process-section-anchor, .cta-banner { position: relative; }
   .why-us > *, .process-section-anchor > *, .cta-banner > * { position: relative; z-index: 1; }
 
-  /* ─── REDUCED MOTION ─── */
+  /* --- REDUCED MOTION --- */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -1793,7 +1793,7 @@
     .tilt-on-hover { transform: none !important; }
   }
 
-  /* ─── RESPONSIVE ─── */
+  /* --- RESPONSIVE --- */
   @media (max-width: 1100px) {
     .hero-reel { width: 100px; height: 100px; top: 6.5rem; }
     .hero-reel-center { width: 44px; height: 44px; }
@@ -1835,9 +1835,9 @@
     .test-card { width: 300px; }
   }
 
-  /* ═══════════════════════════════════════════════════════
-     ASTRA THEME OVERRIDES — force our design through
-     ═══════════════════════════════════════════════════════ */
+  /* =======================================================
+     ASTRA THEME OVERRIDES &mdash; force our design through
+     ======================================================= */
 
   /* Page wrappers transparent so dark body shows */
   html, body {
@@ -1868,7 +1868,7 @@
     font-family: inherit;
   }
 
-  /* Headings — Astra sets dark colors that win otherwise */
+  /* Headings &mdash; Astra sets dark colors that win otherwise */
   h1, h2, h3, h4, h5, h6,
   .entry-content h1, .entry-content h2, .entry-content h3,
   .entry-content h4, .entry-content h5, .entry-content h6,
@@ -1901,7 +1901,7 @@
     color: transparent !important;
   }
 
-  /* Paragraph defaults — kill Astra justification + colors */
+  /* Paragraph defaults &mdash; kill Astra justification + colors */
   p, .entry-content p {
     color: inherit !important;
     text-align: left !important;
@@ -1914,7 +1914,7 @@
     color: #B7A9C8 !important;
   }
 
-  /* Button overrides — Astra's link/hover colors must lose */
+  /* Button overrides &mdash; Astra's link/hover colors must lose */
   a { color: inherit; text-decoration: none; }
   .cta-btn, .cta-btn:hover, .cta-btn:focus,
   .cta-btn:visited, .cta-btn:active, .cta-btn:link {
@@ -2007,50 +2007,245 @@
   .logo-link .logo-text { color: #F5F0FA !important; font-family: 'Instrument Serif', Georgia, serif !important; }
   .logo-link .logo-text em { color: #B254A8 !important; font-style: italic !important; }
 
+
+  /* ============ SERVICES DROPDOWN ============ */
+  nav { gap: 1.8rem; position: relative; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.2s;
+    letter-spacing: inherit;
+  }
+  .nav-dropdown-toggle:hover { color: var(--magenta); }
+  .nav-dropdown-toggle .dd-caret {
+    font-size: 0.7rem;
+    transition: transform 0.3s var(--ease-out);
+  }
+  .nav-dropdown:hover .nav-dropdown-toggle .dd-caret,
+  .nav-dropdown.open .nav-dropdown-toggle .dd-caret { transform: rotate(180deg); }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.8rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    width: 340px;
+    background: rgba(22,16,31,0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 0.6rem;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(178,84,168,0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    z-index: 9000;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  /* Show on hover (desktop) and when manually opened (mobile/keyboard) */
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  /* Bridge gap so hover doesn't drop */
+  .nav-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -0.8rem; left: 0; right: 0;
+    height: 0.8rem;
+  }
+  .nav-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-dropdown-menu a:hover {
+    background: rgba(178,84,168,0.12);
+    transform: translateX(3px);
+  }
+  .nav-dropdown-menu .dd-ic {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--magenta), var(--violet));
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    box-shadow: 0 8px 20px rgba(178,84,168,0.32);
+  }
+  .nav-dropdown-menu .dd-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+  .nav-dropdown-menu .dd-title {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .nav-dropdown-menu .dd-sub {
+    font-size: 0.72rem;
+    color: var(--muted-2);
+    line-height: 1.2;
+  }
+
+  /* Mobile dropdown inside mobile-nav */
+  .mobile-dd { display: flex; flex-direction: column; }
+  .mobile-dd-toggle {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1.6rem;
+    text-align: left;
+    padding: 0.6rem 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .mobile-dd-toggle .dd-caret {
+    font-size: 0.85rem;
+    transition: transform 0.3s var(--ease-out);
+  }
+  .mobile-dd.open .mobile-dd-toggle .dd-caret { transform: rotate(180deg); }
+  .mobile-dd-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease-out);
+    padding-left: 1rem;
+  }
+  .mobile-dd.open .mobile-dd-menu { max-height: 360px; }
+  .mobile-dd-menu a {
+    display: block;
+    padding: 0.45rem 0;
+    color: var(--muted) !important;
+    font-size: 1rem !important;
+  }
+  .mobile-dd-menu a:hover { color: var(--magenta) !important; }
+
 </style>
 </head>
 <body>
 
-<!-- ─── SCROLL PROGRESS BAR ─── -->
+<!-- --- SCROLL PROGRESS BAR --- -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- ─── PAGE LOADER ─── -->
+<!-- --- PAGE LOADER --- -->
 <div class="page-loader" id="pageLoader">
   <img src="CS%20logo.png" alt="Cirova Studio">
 </div>
 
-<!-- ─── CUSTOM CURSOR ─── -->
+<!-- --- CUSTOM CURSOR --- -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ─── HEADER ─── -->
+<!-- --- HEADER --- -->
+<!-- HEADER -->
 <header id="siteHeader">
   <a href="index.html" class="logo-link" data-cursor>
-    <img src="CS%20logo.png" alt="Cirova Studio">
+    <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
     <span class="logo-text">Cirova<em>Studio</em></span>
   </a>
-    <nav>
+  <nav>
     <a href="index.html" data-cursor>Home</a>
-    <a href="video-editing-services.html" data-cursor>Services</a>
+    <div class="nav-dropdown">
+      <button type="button" class="nav-dropdown-toggle" data-cursor aria-haspopup="true" aria-expanded="false">
+        Services
+        <span class="dd-caret" aria-hidden="true">&#9662;</span>
+      </button>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="smm-services.html" role="menuitem">
+          <span class="dd-ic">SM</span>
+          <span class="dd-text">
+            <span class="dd-title">SMM Services</span>
+            <span class="dd-sub">Social media management &amp; growth</span>
+          </span>
+        </a>
+        <a href="video-editing-services.html" role="menuitem">
+          <span class="dd-ic">VE</span>
+          <span class="dd-text">
+            <span class="dd-title">Video Editing</span>
+            <span class="dd-sub">Premiere Pro, color grade, motion</span>
+          </span>
+        </a>
+        <a href="website-development.html" role="menuitem">
+          <span class="dd-ic">WD</span>
+          <span class="dd-text">
+            <span class="dd-title">Website Development</span>
+            <span class="dd-sub">Fast, scalable, SEO-ready websites</span>
+          </span>
+        </a>
+        <a href="ppc-services.html" role="menuitem">
+          <span class="dd-ic">PPC</span>
+          <span class="dd-text">
+            <span class="dd-title">PPC Services</span>
+            <span class="dd-sub">Google &amp; Meta paid campaigns</span>
+          </span>
+        </a>
+        <a href="digital-marketing-services.html" role="menuitem">
+          <span class="dd-ic">DM</span>
+          <span class="dd-text">
+            <span class="dd-title">Digital Marketing</span>
+            <span class="dd-sub">Full-funnel growth strategy</span>
+          </span>
+        </a>
+      </div>
+    </div>
     <a href="about.html" data-cursor>About</a>
     <a href="contact.html" data-cursor>Contact</a>
   </nav>
-  <a href="contact.html" class="cta-btn header-cta" data-cursor><span>Book a Strategy Call</span></a>
+  <a href="contact.html" class="cta-btn header-cta" data-cursor><span>Get a Free Quote</span></a>
   <div class="hamburger" id="hamburger" data-cursor>
     <span></span><span></span><span></span>
   </div>
 </header>
 
-<!-- ─── MOBILE NAV ─── -->
+<!-- --- MOBILE NAV --- -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
-  <a href="video-editing-services.html">Services</a>
+  <div class="mobile-dd">
+    <button type="button" class="mobile-dd-toggle">Services <span class="dd-caret">&#9662;</span></button>
+    <div class="mobile-dd-menu">
+      <a href="smm-services.html">SMM Services</a>
+      <a href="video-editing-services.html">Video Editing</a>
+      <a href="website-development.html">Website Development</a>
+      <a href="ppc-services.html">PPC Services</a>
+      <a href="digital-marketing-services.html">Digital Marketing</a>
+    </div>
+  </div>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <a href="contact.html" class="cta-btn"><span>Get a Free Quote</span></a>
 </div>
 
-<!-- ─── HERO ─── -->
+<!-- --- HERO --- -->
 <section class="hero" id="top">
   <div class="hero-blob" id="heroBlob"></div>
   <div class="hero-blob-2"></div>
@@ -2069,16 +2264,16 @@
           <path id="reelCircle" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
         </defs>
         <text>
-          <textPath href="#reelCircle">WATCH OUR REEL · WATCH OUR REEL · </textPath>
+          <textPath href="#reelCircle">WATCH OUR REEL &middot; WATCH OUR REEL &middot; </textPath>
         </text>
       </svg>
     </div>
-    <div class="hero-reel-center">▶</div>
+    <div class="hero-reel-center">&#9654;</div>
   </a>
 
   <!-- Floating review badge (top left, desktop only) -->
   <div class="hero-badge-floating">
-    <div class="stars">★★★★★</div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
     <div class="text">
       <strong>200+ brands</strong>
       <span>trust Cirova Studio</span>
@@ -2102,7 +2297,7 @@
     <p class="hero-sub">Cirova Studio helps brands grow faster with expert video editing, social media management, content writing, website design, and performance ads, delivering strategic, high-impact marketing without managing multiple freelancers.</p>
 
     <div class="hero-ctas">
-      <a href="#contact" class="cta-btn large" data-cursor><span>Book a Free Discovery Call</span></a>
+      <a href="contact.html" class="cta-btn large" data-cursor><span>Book a Free Discovery Call</span></a>
       <a href="#services" class="btn-outline" data-cursor>
         See Our Services
         <span class="arrow-circle">
@@ -2210,7 +2405,7 @@
 
 </section>
 
-<!-- ─── LOGO MARQUEE ─── -->
+<!-- --- LOGO MARQUEE --- -->
 <div class="logo-marquee">
   <div class="logo-marquee-label">Trusted by ambitious brands</div>
   <div class="logo-marquee-track">
@@ -2234,27 +2429,27 @@
   </div>
 </div>
 
-<!-- ─── ONE STUDIO FOR CREATIVE, CONTENT AND GROWTH ─── -->
+<!-- --- ONE STUDIO FOR CREATIVE, CONTENT AND GROWTH --- -->
 <section class="what-we-do" id="services">
   <!-- Decorative word marquee behind heading -->
   <div class="what-we-do-marquee" aria-hidden="true">
     <div class="what-we-do-marquee-track">
-      <span><em>Creative</em></span><span class="dot">·</span>
-      <span>Content</span><span class="dot">·</span>
-      <span><em>Growth</em></span><span class="dot">·</span>
-      <span>Reels</span><span class="dot">·</span>
-      <span><em>Ads</em></span><span class="dot">·</span>
-      <span>Websites</span><span class="dot">·</span>
-      <span><em>Strategy</em></span><span class="dot">·</span>
-      <span>Branding</span><span class="dot">·</span>
-      <span><em>Creative</em></span><span class="dot">·</span>
-      <span>Content</span><span class="dot">·</span>
-      <span><em>Growth</em></span><span class="dot">·</span>
-      <span>Reels</span><span class="dot">·</span>
-      <span><em>Ads</em></span><span class="dot">·</span>
-      <span>Websites</span><span class="dot">·</span>
-      <span><em>Strategy</em></span><span class="dot">·</span>
-      <span>Branding</span><span class="dot">·</span>
+      <span><em>Creative</em></span><span class="dot">&middot;</span>
+      <span>Content</span><span class="dot">&middot;</span>
+      <span><em>Growth</em></span><span class="dot">&middot;</span>
+      <span>Reels</span><span class="dot">&middot;</span>
+      <span><em>Ads</em></span><span class="dot">&middot;</span>
+      <span>Websites</span><span class="dot">&middot;</span>
+      <span><em>Strategy</em></span><span class="dot">&middot;</span>
+      <span>Branding</span><span class="dot">&middot;</span>
+      <span><em>Creative</em></span><span class="dot">&middot;</span>
+      <span>Content</span><span class="dot">&middot;</span>
+      <span><em>Growth</em></span><span class="dot">&middot;</span>
+      <span>Reels</span><span class="dot">&middot;</span>
+      <span><em>Ads</em></span><span class="dot">&middot;</span>
+      <span>Websites</span><span class="dot">&middot;</span>
+      <span><em>Strategy</em></span><span class="dot">&middot;</span>
+      <span>Branding</span><span class="dot">&middot;</span>
     </div>
   </div>
 
@@ -2323,25 +2518,25 @@
 </section>
 
 
-<!-- ─── ROTATED MARQUEE ─── -->
+<!-- --- ROTATED MARQUEE --- -->
 <div class="marquee-band">
   <div class="marquee-band-track">
-    <span><em>Video.</em></span><span class="dot">●</span>
-    <span>Social.</span><span class="dot">●</span>
-    <span><em>Content.</em></span><span class="dot">●</span>
-    <span>Websites.</span><span class="dot">●</span>
-    <span><em>Ads.</em></span><span class="dot">●</span>
-    <span>Growth.</span><span class="dot">●</span>
-    <span><em>Video.</em></span><span class="dot">●</span>
-    <span>Social.</span><span class="dot">●</span>
-    <span><em>Content.</em></span><span class="dot">●</span>
-    <span>Websites.</span><span class="dot">●</span>
-    <span><em>Ads.</em></span><span class="dot">●</span>
-    <span>Growth.</span><span class="dot">●</span>
+    <span><em>Video.</em></span><span class="dot">&#9679;</span>
+    <span>Social.</span><span class="dot">&#9679;</span>
+    <span><em>Content.</em></span><span class="dot">&#9679;</span>
+    <span>Websites.</span><span class="dot">&#9679;</span>
+    <span><em>Ads.</em></span><span class="dot">&#9679;</span>
+    <span>Growth.</span><span class="dot">&#9679;</span>
+    <span><em>Video.</em></span><span class="dot">&#9679;</span>
+    <span>Social.</span><span class="dot">&#9679;</span>
+    <span><em>Content.</em></span><span class="dot">&#9679;</span>
+    <span>Websites.</span><span class="dot">&#9679;</span>
+    <span><em>Ads.</em></span><span class="dot">&#9679;</span>
+    <span>Growth.</span><span class="dot">&#9679;</span>
   </div>
 </div>
 
-<!-- ─── WORK / PORTFOLIO ─── -->
+<!-- --- WORK / PORTFOLIO --- -->
 <section class="work-section" id="work">
   <div class="reveal">
     <div class="section-eyebrow">Selected work</div>
@@ -2354,7 +2549,7 @@
       <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80&auto=format&fit=crop" alt="Brand campaign">
       <div class="work-item-overlay">
         <span class="tag">Brand campaign</span>
-        <h4>Northwind — Spring launch</h4>
+        <h4>Northwind &mdash; Spring launch</h4>
       </div>
     </div>
     <div class="work-item" data-cursor data-label="View">
@@ -2375,7 +2570,7 @@
       <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&auto=format&fit=crop" alt="Strategy">
       <div class="work-item-overlay">
         <span class="tag">Strategy</span>
-        <h4>Halo — Growth blueprint</h4>
+        <h4>Halo &mdash; Growth blueprint</h4>
       </div>
     </div>
     <div class="work-item" data-cursor data-label="View">
@@ -2389,19 +2584,19 @@
       <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80&auto=format&fit=crop" alt="Website design">
       <div class="work-item-overlay">
         <span class="tag">Website</span>
-        <h4>BrightLane — full redesign</h4>
+        <h4>BrightLane &mdash; full redesign</h4>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── WHY CIROVA STUDIO IS YOUR BEST CHOICE ─── -->
+<!-- --- WHY CIROVA STUDIO IS YOUR BEST CHOICE --- -->
 <section class="why-us" id="why">
   <div class="why-grid">
     <div class="reveal">
       <div class="section-eyebrow">Why Cirova</div>
       <h2 class="section-title">Why Cirova Studio Is <em>Your Best Choice.</em></h2>
-      <p class="section-sub">An integrated team, a clear process and creative work built to perform — not just look good.</p>
+      <p class="section-sub">An integrated team, a clear process and creative work built to perform &mdash; not just look good.</p>
 
       <div class="why-image">
         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&auto=format&fit=crop" alt="Cirova Studio integrated team at work">
@@ -2415,35 +2610,35 @@
 
     <div class="why-cards reveal">
       <div class="why-card">
-        <div class="check">✦</div>
+        <div class="check">&#10022;</div>
         <h3>An Integrated Team, Not <em>Scattered Freelancers</em></h3>
         <p>Cirova Studio brings video editors, content writers, social media specialists, designers and marketing strategists into one coordinated workflow. This integrated approach reduces delays, improves communication and ensures your brand messaging stays consistent across videos, websites, social media and advertising campaigns.</p>
       </div>
       <div class="why-card">
-        <div class="check">⚡</div>
+        <div class="check">&#9889;</div>
         <h3>Execution That Is Fast, <em>Organized &amp; Collaborative</em></h3>
         <p>Creative work performs best when feedback and revisions are handled efficiently. Our workflow is designed to keep projects moving with clear communication, structured feedback cycles and quick turnaround times so your campaigns and content stay on schedule.</p>
       </div>
       <div class="why-card">
-        <div class="check">⚙</div>
+        <div class="check">&#9881;</div>
         <h3>Flexible Support for <em>Growing Businesses</em></h3>
         <p>Whether you are a startup building your first online presence, a founder growing a personal brand or a business scaling marketing efforts, Cirova Studio provides adaptable support. Start with one service like video editing or website redesign, or combine multiple services for ongoing digital marketing support.</p>
       </div>
       <div class="why-card">
-        <div class="check">◎</div>
+        <div class="check">&#9678;</div>
         <h3>Strategy-Driven <em>Creative Work</em></h3>
         <p>We believe creative output should support business goals, not just aesthetics. Every piece of content, whether it's a reel, landing page, blog post or ad creative, is developed with a clear objective such as improving visibility, increasing engagement or generating qualified leads.</p>
       </div>
       <div class="why-card" style="grid-column: span 2;">
-        <div class="check">★</div>
+        <div class="check">&#9733;</div>
         <h3>Content That Performs, <em>Not Just Looks Good</em></h3>
-        <p>At Cirova Studio, design and marketing work together. Our videos, websites and campaigns are created to capture attention, communicate value clearly and encourage action — helping your brand build trust, attract the right audience and convert visitors into customers.</p>
+        <p>At Cirova Studio, design and marketing work together. Our videos, websites and campaigns are created to capture attention, communicate value clearly and encourage action &mdash; helping your brand build trust, attract the right audience and convert visitors into customers.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PROCESS / HOW WE WORK ─── -->
+<!-- --- PROCESS / HOW WE WORK --- -->
 <section id="process" class="process-section-anchor">
   <div class="reveal">
     <div class="section-eyebrow">Our Process</div>
@@ -2475,7 +2670,7 @@
   </div>
 </section>
 
-<!-- ─── WHO WE WORK WITH ─── -->
+<!-- --- WHO WE WORK WITH --- -->
 <section class="audience-section">
   <div class="audience-grid-wrap">
     <div class="reveal">
@@ -2519,19 +2714,19 @@
   </div>
 </section>
 
-<!-- ─── SECTION BREAKER (italic magenta marquee band) ─── -->
+<!-- --- SECTION BREAKER (italic magenta marquee band) --- -->
 <div class="section-breaker">
   <div class="section-breaker-track">
-    <span><em>Built for today's</em> search environment.</span><span class="dot">●</span>
-    <span><em>AI-ready.</em> Locally relevant.</span><span class="dot">●</span>
-    <span><em>Conversion-focused</em> by design.</span><span class="dot">●</span>
-    <span><em>Built for today's</em> search environment.</span><span class="dot">●</span>
-    <span><em>AI-ready.</em> Locally relevant.</span><span class="dot">●</span>
-    <span><em>Conversion-focused</em> by design.</span><span class="dot">●</span>
+    <span><em>Built for today's</em> search environment.</span><span class="dot">&#9679;</span>
+    <span><em>AI-ready.</em> Locally relevant.</span><span class="dot">&#9679;</span>
+    <span><em>Conversion-focused</em> by design.</span><span class="dot">&#9679;</span>
+    <span><em>Built for today's</em> search environment.</span><span class="dot">&#9679;</span>
+    <span><em>AI-ready.</em> Locally relevant.</span><span class="dot">&#9679;</span>
+    <span><em>Conversion-focused</em> by design.</span><span class="dot">&#9679;</span>
   </div>
 </div>
 
-<!-- ─── SEO / SEARCH ENVIRONMENT ─── -->
+<!-- --- SEO / SEARCH ENVIRONMENT --- -->
 <section class="seo-section">
   <div class="seo-grid">
     <div class="reveal">
@@ -2560,7 +2755,7 @@
       <!-- Local / Maps mock -->
       <div class="seo-card seo-card-2">
         <div class="seo-card-head">
-          <span class="seo-card-icon" style="background: linear-gradient(135deg, #34a853, #4caf50);">📍</span>
+          <span class="seo-card-icon" style="background: linear-gradient(135deg, #34a853, #4caf50);">&#128205;</span>
           <span class="seo-card-title">Local Discovery</span>
           <span class="seo-card-dot"></span>
         </div>
@@ -2575,7 +2770,7 @@
       <!-- Social discovery mock -->
       <div class="seo-card seo-card-3">
         <div class="seo-card-head">
-          <span class="seo-card-icon" style="background: linear-gradient(135deg, #f56040, #e1306c, #833ab4);">●</span>
+          <span class="seo-card-icon" style="background: linear-gradient(135deg, #f56040, #e1306c, #833ab4);">&#9679;</span>
           <span class="seo-card-title">Social Discovery</span>
           <span class="seo-card-dot"></span>
         </div>
@@ -2592,7 +2787,7 @@
   </div>
 </section>
 
-<!-- ─── TESTIMONIALS ─── -->
+<!-- --- TESTIMONIALS --- -->
 <section class="testimonials">
   <div class="reveal">
     <div class="section-eyebrow">What clients say</div>
@@ -2601,7 +2796,7 @@
 
   <div class="testimonials-track">
     <div class="test-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="quote">"Cirova replaced our entire creative <em>freelance roster.</em> Faster turnarounds, better output, way less management."</p>
       <div class="test-author">
         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80&auto=format&fit=crop" alt="">
@@ -2609,7 +2804,7 @@
       </div>
     </div>
     <div class="test-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="quote">"Our reels finally feel like our brand. <em>Conversion on the new landing</em> page is up 38% in two months."</p>
       <div class="test-author">
         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&auto=format&fit=crop" alt="">
@@ -2617,16 +2812,16 @@
       </div>
     </div>
     <div class="test-card">
-      <div class="stars">★★★★★</div>
-      <p class="quote">"They run our social, write our blogs and edit every video — <em>one team, zero chaos.</em>"</p>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">"They run our social, write our blogs and edit every video &mdash; <em>one team, zero chaos.</em>"</p>
       <div class="test-author">
         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80&auto=format&fit=crop" alt="">
         <div><div class="name">Maya Sharma</div><div class="role">Marketing Lead, Halo Goods</div></div>
       </div>
     </div>
     <div class="test-card">
-      <div class="stars">★★★★★</div>
-      <p class="quote">"Strategy-first, design-second. <em>Every asset has a job</em> — and does it."</p>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">"Strategy-first, design-second. <em>Every asset has a job</em> &mdash; and does it."</p>
       <div class="test-author">
         <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80&auto=format&fit=crop" alt="">
         <div><div class="name">Omar Khalid</div><div class="role">CEO, Foundry</div></div>
@@ -2634,7 +2829,7 @@
     </div>
     <!-- duplicate for seamless loop -->
     <div class="test-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="quote">"Cirova replaced our entire creative <em>freelance roster.</em> Faster turnarounds, better output, way less management."</p>
       <div class="test-author">
         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80&auto=format&fit=crop" alt="">
@@ -2642,7 +2837,7 @@
       </div>
     </div>
     <div class="test-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="quote">"Our reels finally feel like our brand. <em>Conversion on the new landing</em> page is up 38% in two months."</p>
       <div class="test-author">
         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&auto=format&fit=crop" alt="">
@@ -2652,7 +2847,7 @@
   </div>
 </section>
 
-<!-- ─── CTA BANNER ─── -->
+<!-- --- CTA BANNER --- -->
 <section class="cta-banner" id="contact">
   <div class="reveal">
     <div class="section-eyebrow">Let's work together</div>
@@ -2670,7 +2865,7 @@
   </div>
 </section>
 
-<!-- ─── FAQ ─── -->
+<!-- --- FAQ --- -->
 <section class="faq-section" id="faq">
   <div class="reveal" style="text-align:center;">
     <div class="section-eyebrow" style="justify-content:center;">FAQ</div>
@@ -2701,70 +2896,59 @@
   </div>
 </section>
 
-<!-- ─── BIG OUTRO TEXT ─── -->
+<!-- --- BIG OUTRO TEXT --- -->
 <div class="outro-text">
-  <h2>Cirova<em>Studio</em>™</h2>
+  <h2>Cirova<em>Studio</em>&trade;</h2>
 </div>
 
-<!-- ─── FOOTER ─── -->
+<!-- --- FOOTER --- -->
 <footer>
-  <div class="footer-top">
+    <div class="footer-top">
     <div class="footer-brand">
       <a href="index.html" class="logo-link" data-cursor>
-        <img src="CS%20logo.png" alt="Cirova Studio">
+        <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
         <span class="logo-text">Cirova<em>Studio</em></span>
       </a>
-      <p>Creative content. Smart marketing. Better growth.</p>
-      <form class="newsletter" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch.');">
-        <input type="email" placeholder="your@email.com" required>
-        <button type="submit" data-cursor aria-label="Subscribe">
-          <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </form>
-      <div class="footer-socials" style="margin-top: 1rem;">
+      <p class="footer-tagline">A growth-focused marketing partner delivering strategy, creative production, and measurable results for modern brands.</p>
+      <div class="footer-socials">
         <a href="#" class="social-link" data-cursor>IG</a>
         <a href="#" class="social-link" data-cursor>IN</a>
         <a href="#" class="social-link" data-cursor>FB</a>
       </div>
     </div>
-
-    <div>
+    <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Video Editing</a></li>
-        <li><a href="#services">Social Media Management</a></li>
-        <li><a href="#services">Content Writing</a></li>
-        <li><a href="#services">Website Design</a></li>
-        <li><a href="#services">Website Redesign</a></li>
-        <li><a href="#services">Google Ads</a></li>
-        <li><a href="#services">Meta Ads</a></li>
-        <li><a href="#services">Digital Marketing</a></li>
+        <li><a href="video-editing-services.html">Video Editing</a></li>
+        <li><a href="video-editing-services.html">Social Media Management</a></li>
+        <li><a href="video-editing-services.html">Website Development</a></li>
+        <li><a href="video-editing-services.html">Performance Ads</a></li>
+        <li><a href="video-editing-services.html">SEO &amp; Content</a></li>
+        <li><a href="video-editing-services.html">Brand Design</a></li>
       </ul>
     </div>
-
-    <div>
-      <h4>Quick Links</h4>
+    <div class="footer-col">
+      <h4>Company</h4>
       <ul>
-        <li><a href="#top">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="video-editing-services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
-
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p><a href="mailto:hello@cirovastudio.com">hello@cirovastudio.com</a></p>
-      <p><a href="tel:+910000000000">+91-XXXXXXXXXX</a></p>
-      <p style="margin-top: 0.8rem;">📍 India</p>
-      <a href="#contact" class="cta-btn" style="margin-top: 1.4rem; display: inline-block;" data-cursor><span>Book a Strategy Call</span></a>
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="mailto:cirovastudio@gmail.com">cirovastudio@gmail.com</a></li>
+        <li><a href="tel:+919877147660">+91 9877147660</a></li>
+        <li>Gurugram, Haryana &middot; India</li>
+        <li>Remote worldwide</li>
+      </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 Cirova Studio. All rights reserved.</p>
+    <p>&copy; 2026 Cirova Studio. All rights reserved.</p>
     <div style="display: flex; gap: 1.5rem;">
       <a href="#">Privacy policy</a>
       <a href="#">Terms of service</a>
@@ -2774,12 +2958,12 @@
 
 <script>
 (function () {
-  /* ─── PAGE LOADER ─── */
+  /* --- PAGE LOADER --- */
   window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('pageLoader').classList.add('gone'), 400);
   });
 
-  /* ─── CUSTOM CURSOR ─── */
+  /* --- CUSTOM CURSOR --- */
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
   let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
@@ -2813,14 +2997,14 @@
     });
   });
 
-  /* ─── HEADER SCROLL STATE ─── */
+  /* --- HEADER SCROLL STATE --- */
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 30) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
   });
 
-  /* ─── HERO BLOB FOLLOWS CURSOR ─── */
+  /* --- HERO BLOB FOLLOWS CURSOR --- */
   const blob = document.getElementById('heroBlob');
   const hero = document.querySelector('.hero');
   hero.addEventListener('mousemove', e => {
@@ -2831,7 +3015,7 @@
   });
   blob.style.transform = 'translate3d(20%, 30%, 0)';
 
-  /* ─── REVEAL ANIMATIONS ─── */
+  /* --- REVEAL ANIMATIONS --- */
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -2843,7 +3027,7 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => revealObs.observe(el));
 
-  /* ─── WORK ITEMS REVEAL (staggered) ─── */
+  /* --- WORK ITEMS REVEAL (staggered) --- */
   const workItems = document.querySelectorAll('.work-item');
   const workObs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -2855,7 +3039,7 @@
   }, { threshold: 0.15 });
   workItems.forEach(el => workObs.observe(el));
 
-  /* ─── COUNTER ANIMATION ─── */
+  /* --- COUNTER ANIMATION --- */
   const counters = document.querySelectorAll('.num[data-count]');
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -2876,7 +3060,7 @@
   }, { threshold: 0.5 });
   counters.forEach(el => counterObs.observe(el));
 
-  /* ─── WHAT-WE-DO SWITCHER ─── */
+  /* --- WHAT-WE-DO SWITCHER --- */
   const whatItems = document.querySelectorAll('.what-item');
   const whatImgs = document.querySelectorAll('#whatVisual img');
   whatItems.forEach(item => {
@@ -2889,7 +3073,7 @@
     });
   });
 
-  /* ─── FAQ ACCORDION ─── */
+  /* --- FAQ ACCORDION --- */
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
@@ -2899,7 +3083,7 @@
     });
   });
 
-  /* ─── MOBILE NAV ─── */
+  /* --- MOBILE NAV --- */
   const ham = document.getElementById('hamburger');
   const mNav = document.getElementById('mobileNav');
   ham.addEventListener('click', () => {
@@ -2911,7 +3095,7 @@
     mNav.classList.remove('open');
   }));
 
-  /* ─── MAGNETIC CTAs (incl. outline buttons) ─── */
+  /* --- MAGNETIC CTAs (incl. outline buttons) --- */
   document.querySelectorAll('.cta-btn, .btn-outline').forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const rect = btn.getBoundingClientRect();
@@ -2922,7 +3106,7 @@
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 
-  /* ─── SCROLL PROGRESS BAR ─── */
+  /* --- SCROLL PROGRESS BAR --- */
   const progressBar = document.getElementById('scrollProgress');
   if (progressBar) {
     let ticking = false;
@@ -2941,7 +3125,7 @@
     }, { passive: true });
   }
 
-  /* ─── 3D CARD TILT ON HOVER ─── */
+  /* --- 3D CARD TILT ON HOVER --- */
   const tiltCards = document.querySelectorAll('.service-card, .why-card, .process-card, .bento-card, .test-card, .seo-card');
   tiltCards.forEach(card => card.classList.add('tilt-on-hover'));
   const isMobile = window.matchMedia('(hover: none)').matches;
@@ -2959,7 +3143,7 @@
     });
   }
 
-  /* ─── SMOOTH SCROLL FOR ANCHOR LINKS ─── */
+  /* --- SMOOTH SCROLL FOR ANCHOR LINKS --- */
   document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
     link.addEventListener('click', e => {
       const target = document.querySelector(link.getAttribute('href'));

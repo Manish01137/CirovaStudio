@@ -2831,6 +2831,148 @@
     .team-collage .tc-wide { grid-column: span 1; }
   }
 
+
+  /* ============ SERVICES DROPDOWN ============ */
+  nav { gap: 1.8rem; position: relative; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.2s;
+    letter-spacing: inherit;
+  }
+  .nav-dropdown-toggle:hover { color: var(--magenta); }
+  .nav-dropdown-toggle .dd-caret {
+    font-size: 0.7rem;
+    transition: transform 0.3s var(--ease-out);
+  }
+  .nav-dropdown:hover .nav-dropdown-toggle .dd-caret,
+  .nav-dropdown.open .nav-dropdown-toggle .dd-caret { transform: rotate(180deg); }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.8rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    width: 340px;
+    background: rgba(22,16,31,0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 0.6rem;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(178,84,168,0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    z-index: 9000;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  /* Show on hover (desktop) and when manually opened (mobile/keyboard) */
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  /* Bridge gap so hover doesn't drop */
+  .nav-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -0.8rem; left: 0; right: 0;
+    height: 0.8rem;
+  }
+  .nav-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-dropdown-menu a:hover {
+    background: rgba(178,84,168,0.12);
+    transform: translateX(3px);
+  }
+  .nav-dropdown-menu .dd-ic {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--magenta), var(--violet));
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    box-shadow: 0 8px 20px rgba(178,84,168,0.32);
+  }
+  .nav-dropdown-menu .dd-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+  .nav-dropdown-menu .dd-title {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .nav-dropdown-menu .dd-sub {
+    font-size: 0.72rem;
+    color: var(--muted-2);
+    line-height: 1.2;
+  }
+
+  /* Mobile dropdown inside mobile-nav */
+  .mobile-dd { display: flex; flex-direction: column; }
+  .mobile-dd-toggle {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1.6rem;
+    text-align: left;
+    padding: 0.6rem 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .mobile-dd-toggle .dd-caret {
+    font-size: 0.85rem;
+    transition: transform 0.3s var(--ease-out);
+  }
+  .mobile-dd.open .mobile-dd-toggle .dd-caret { transform: rotate(180deg); }
+  .mobile-dd-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease-out);
+    padding-left: 1rem;
+  }
+  .mobile-dd.open .mobile-dd-menu { max-height: 360px; }
+  .mobile-dd-menu a {
+    display: block;
+    padding: 0.45rem 0;
+    color: var(--muted) !important;
+    font-size: 1rem !important;
+  }
+  .mobile-dd-menu a:hover { color: var(--magenta) !important; }
+
 </style>
 
 <!-- --- SCROLL PROGRESS --- -->
@@ -2848,6 +2990,7 @@
 <div class="cursor-ring" id="cursorRing"></div>
 
 <!-- --- HEADER --- -->
+<!-- HEADER -->
 <header id="siteHeader">
   <a href="index.html" class="logo-link" data-cursor>
     <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
@@ -2855,7 +2998,49 @@
   </a>
   <nav>
     <a href="index.html" data-cursor>Home</a>
-    <a href="video-editing-services.html" data-cursor>Services</a>
+    <div class="nav-dropdown">
+      <button type="button" class="nav-dropdown-toggle" data-cursor aria-haspopup="true" aria-expanded="false">
+        Services
+        <span class="dd-caret" aria-hidden="true">&#9662;</span>
+      </button>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="smm-services.html" role="menuitem">
+          <span class="dd-ic">SM</span>
+          <span class="dd-text">
+            <span class="dd-title">SMM Services</span>
+            <span class="dd-sub">Social media management &amp; growth</span>
+          </span>
+        </a>
+        <a href="video-editing-services.html" role="menuitem">
+          <span class="dd-ic">VE</span>
+          <span class="dd-text">
+            <span class="dd-title">Video Editing</span>
+            <span class="dd-sub">Premiere Pro, color grade, motion</span>
+          </span>
+        </a>
+        <a href="website-development.html" role="menuitem">
+          <span class="dd-ic">WD</span>
+          <span class="dd-text">
+            <span class="dd-title">Website Development</span>
+            <span class="dd-sub">Fast, scalable, SEO-ready websites</span>
+          </span>
+        </a>
+        <a href="ppc-services.html" role="menuitem">
+          <span class="dd-ic">PPC</span>
+          <span class="dd-text">
+            <span class="dd-title">PPC Services</span>
+            <span class="dd-sub">Google &amp; Meta paid campaigns</span>
+          </span>
+        </a>
+        <a href="digital-marketing-services.html" role="menuitem">
+          <span class="dd-ic">DM</span>
+          <span class="dd-text">
+            <span class="dd-title">Digital Marketing</span>
+            <span class="dd-sub">Full-funnel growth strategy</span>
+          </span>
+        </a>
+      </div>
+    </div>
     <a href="about.html" data-cursor>About</a>
     <a href="contact.html" data-cursor>Contact</a>
   </nav>
@@ -2866,9 +3051,19 @@
 </header>
 
 <!-- --- MOBILE NAV --- -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
-  <a href="video-editing-services.html">Services</a>
+  <div class="mobile-dd">
+    <button type="button" class="mobile-dd-toggle">Services <span class="dd-caret">&#9662;</span></button>
+    <div class="mobile-dd-menu">
+      <a href="smm-services.html">SMM Services</a>
+      <a href="video-editing-services.html">Video Editing</a>
+      <a href="website-development.html">Website Development</a>
+      <a href="ppc-services.html">PPC Services</a>
+      <a href="digital-marketing-services.html">Digital Marketing</a>
+    </div>
+  </div>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <a href="contact.html" class="cta-btn"><span>Get a Free Quote</span></a>
@@ -2895,8 +3090,8 @@
     <p class="hero-sub">Cirova Studio is a growth-focused marketing partner delivering strategic creative production, performance advertising, website development, and digital marketing services to help businesses scale visibility, leads, and long-term brand authority online.</p>
 
     <div class="hero-ctas">
-      <a href="#contact" class="cta-btn large" data-cursor><span>Start Your Project</span></a>
-      <a href="#contact" class="btn-outline" data-cursor>
+      <a href="contact.html" class="cta-btn large" data-cursor><span>Start Your Project</span></a>
+      <a href="contact.html" class="btn-outline" data-cursor>
         Talk to a Marketing Expert
         <span class="arrow-circle">
           <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -3013,7 +3208,7 @@
   </div>
 
   <div class="hero-ctas" style="justify-content: center; margin-top: 2.5rem;">
-    <a href="#contact" class="cta-btn large" data-cursor><span>Work With Our Team</span></a>
+    <a href="contact.html" class="cta-btn large" data-cursor><span>Work With Our Team</span></a>
     <a href="video-editing-services.html" class="btn-outline" data-cursor>
       Explore Our Services
       <span class="arrow-circle">
@@ -3050,7 +3245,7 @@
 
   <div class="hero-ctas" style="justify-content: center; margin-top: 2.5rem;">
     <a href="#process" class="cta-btn large" data-cursor><span>See Our Process</span></a>
-    <a href="#contact" class="btn-outline" data-cursor>
+    <a href="contact.html" class="btn-outline" data-cursor>
       Plan Your Marketing
       <span class="arrow-circle">
         <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -3096,8 +3291,8 @@
   </div>
 
   <div class="hero-ctas" style="justify-content: center; margin-top: 2.5rem;">
-    <a href="#contact" class="cta-btn large" data-cursor><span>Get Marketing Proposal</span></a>
-    <a href="#contact" class="btn-outline" data-cursor>
+    <a href="contact.html" class="cta-btn large" data-cursor><span>Get Marketing Proposal</span></a>
+    <a href="contact.html" class="btn-outline" data-cursor>
       Talk to Our Experts
       <span class="arrow-circle">
         <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -3164,7 +3359,7 @@
 
   <div class="hero-ctas" style="justify-content: center; margin-top: 2.5rem;">
     <a href="video-editing-services.html" class="cta-btn large" data-cursor><span>Explore Marketing Solutions</span></a>
-    <a href="#contact" class="btn-outline" data-cursor>
+    <a href="contact.html" class="btn-outline" data-cursor>
       Start Your Campaign
       <span class="arrow-circle">
         <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -3253,7 +3448,7 @@
 
 <!-- --- FOOTER --- -->
 <footer>
-  <div class="footer-top">
+    <div class="footer-top">
     <div class="footer-brand">
       <a href="index.html" class="logo-link" data-cursor>
         <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
@@ -3273,26 +3468,30 @@
         <li><a href="video-editing-services.html">Social Media Management</a></li>
         <li><a href="video-editing-services.html">Website Development</a></li>
         <li><a href="video-editing-services.html">Performance Ads</a></li>
+        <li><a href="video-editing-services.html">SEO &amp; Content</a></li>
+        <li><a href="video-editing-services.html">Brand Design</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="video-editing-services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Get in touch</h4>
       <ul>
-        <li><a href="mailto:hello@cirovastudio.com">hello@cirovastudio.com</a></li>
-        <li>Delhi NCR &middot; India</li>
+        <li><a href="mailto:cirovastudio@gmail.com">cirovastudio@gmail.com</a></li>
+        <li><a href="tel:+919877147660">+91 9877147660</a></li>
+        <li>Gurugram, Haryana &middot; India</li>
         <li>Remote worldwide</li>
       </ul>
     </div>
   </div>
+
   <div class="footer-bottom">
     <p>&copy; 2026 Cirova Studio. All rights reserved.</p>
     <h2>Cirova<em>Studio</em>&trade;</h2>

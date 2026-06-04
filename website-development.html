@@ -1,15 +1,9 @@
-<!--
-  CIROVA STUDIO &mdash; VIDEO EDITING SERVICES PAGE (WordPress-ready)
-  URL slug: video-editing-services
-  Meta Title: Hire Professional Video Editing Services Today
-  Meta Description: Hire professional video editing services from Cirova Studio. 100+ editors, advanced tools, fast delivery for marketing, YouTube, and social media videos.
--->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+
   :root {
     /* Colors pulled from logo */
     --bg:           #0E0A14;
@@ -223,25 +217,23 @@
     position: relative;
     min-height: 100vh;
     padding: 8rem 4% 4rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     overflow: hidden;
   }
   .hero-content {
     position: relative;
     z-index: 3;
+    max-width: 720px;
     width: 100%;
-    max-width: 640px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 2rem 0 4rem;
   }
-  .hero h1 {
-    max-width: 580px;
-    font-size: clamp(2.6rem, 5.6vw, 5rem) !important;
-  }
+  .hero h1 { max-width: 700px; }
 
   /* Vertical "scroll" indicator on the side */
   .hero-scroll {
@@ -350,317 +342,79 @@
   .hero-badge-floating .text strong { display: block; font-weight: 700; }
   .hero-badge-floating .text span { color: var(--muted); font-size: 0.72rem; }
 
-  /* -- HERO TIMELINE EDITOR (signature element &mdash; video editing themed) -- */
-  .hero-timeline {
-    position: relative;
-    width: 100%;
-    max-width: 640px;
-    justify-self: end;
-    z-index: 2;
-    opacity: 0;
-    animation: fade-up 1.1s var(--ease-out) 1.1s forwards;
-    pointer-events: none;
-  }
-  .ht-window {
-    background: linear-gradient(180deg, #1A1228, #110A1C);
-    border: 1px solid var(--border-strong);
-    border-radius: 16px;
-    box-shadow: 0 40px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(178,84,168,0.08), 0 0 60px rgba(178,84,168,0.12);
-    overflow: hidden;
-    pointer-events: auto;
-    position: relative;
-    transform: perspective(1400px) rotateY(-7deg) rotateX(3deg);
-    transition: transform 0.7s var(--ease-out);
-  }
-  .ht-window:hover { transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
-
-  .ht-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 0.95rem;
-    background: rgba(14,10,20,0.75);
-    border-bottom: 1px solid var(--border);
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.62rem;
-    color: var(--muted-2);
-  }
-  .ht-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .ht-dot.r { background: #FF5F57; }
-  .ht-dot.y { background: #FEBC2E; }
-  .ht-dot.g { background: #28C840; }
-  .ht-title { margin-left: 0.5rem; letter-spacing: 0.05em; }
-  .ht-tc { margin-left: auto; color: var(--magenta-2); font-weight: 700; font-feature-settings: "tnum"; letter-spacing: 0.06em; }
-  .ht-rec { display: inline-flex; align-items: center; gap: 0.3rem; color: #FF5F57; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.12em; }
-  .ht-rec::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #FF5F57; animation: rec-blink 1.4s ease-in-out infinite; }
-  @keyframes rec-blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-  .ht-preview {
-    aspect-ratio: 16/9;
-    background: linear-gradient(135deg, #2A1240 0%, #1A0D24 60%, #0E0A14 100%);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .ht-preview::before {
-    content: "";
+  /* Right-side vertical photo stream (signature element) */
+  .hero-stream {
     position: absolute;
-    inset: -20%;
-    background:
-      radial-gradient(circle at 25% 45%, rgba(197,102,185,0.55), transparent 45%),
-      radial-gradient(circle at 75% 60%, rgba(224,166,216,0.35), transparent 45%),
-      radial-gradient(circle at 50% 80%, rgba(126,77,140,0.5), transparent 50%);
-    animation: preview-drift 10s ease-in-out infinite;
-    filter: blur(8px);
-  }
-  @keyframes preview-drift {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(-6%, 3%) scale(1.08); }
-    66% { transform: translate(4%, -2%) scale(1.05); }
-  }
-  .ht-preview::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,255,255,0.025) 3px, rgba(255,255,255,0.025) 4px);
-    pointer-events: none;
-  }
-  .ht-play {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    background: rgba(245,240,250,0.95);
-    color: #0E0A14;
+    right: 4%;
+    top: 9rem;
+    bottom: 5rem;
+    width: 36%;
+    max-width: 480px;
     display: grid;
-    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
     z-index: 2;
-    box-shadow: 0 0 0 8px rgba(245,240,250,0.08), 0 0 0 18px rgba(245,240,250,0.04);
-    animation: play-pulse 2.4s ease-out infinite;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    opacity: 0;
+    animation: fade-up 1s var(--ease-out) 1.2s forwards;
   }
-  .ht-play::before {
-    content: "";
-    width: 0; height: 0;
-    border-style: solid;
-    border-width: 8px 0 8px 12px;
-    border-color: transparent transparent transparent #0E0A14;
-    margin-left: 3px;
-  }
-  @keyframes play-pulse {
-    0% { box-shadow: 0 0 0 8px rgba(245,240,250,0.08), 0 0 0 18px rgba(245,240,250,0.04); }
-    70% { box-shadow: 0 0 0 28px rgba(245,240,250,0), 0 0 0 40px rgba(245,240,250,0); }
-    100% { box-shadow: 0 0 0 8px rgba(245,240,250,0), 0 0 0 18px rgba(245,240,250,0); }
-  }
-  .ht-frame {
-    position: absolute;
-    bottom: 0.55rem; left: 0.7rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.58rem;
-    color: var(--magenta-2);
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    z-index: 2;
-  }
-  .ht-resolution {
-    position: absolute;
-    bottom: 0.55rem; right: 0.7rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.55rem;
-    color: var(--muted-2);
-    letter-spacing: 0.1em;
-    z-index: 2;
-  }
-
-  .ht-ruler {
-    display: flex;
-    height: 16px;
-    background: rgba(0,0,0,0.4);
-    border-bottom: 1px solid var(--border);
-    padding-left: 38px;
-    position: relative;
-  }
-  .ht-ruler span {
-    flex: 1;
-    position: relative;
-    border-left: 1px solid rgba(255,255,255,0.06);
-  }
-  .ht-ruler span::after {
-    content: "";
-    position: absolute;
-    left: -1px; top: 0;
-    width: 1px; height: 5px;
-    background: var(--muted-2);
-    opacity: 0.6;
-  }
-
-  .ht-tracks {
-    padding: 0.45rem 0.45rem 0.7rem;
+  .hero-stream-col {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    position: relative;
+    gap: 0.9rem;
+    animation: stream-up 32s linear infinite;
+    will-change: transform;
   }
-  .ht-track {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    height: 22px;
+  .hero-stream-col.down { animation: stream-down 32s linear infinite; }
+  .hero-stream-col:hover { animation-play-state: paused; }
+  @keyframes stream-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
   }
-  .ht-track.main { height: 28px; }
-  .ht-track .lbl {
-    width: 28px;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.58rem;
-    font-weight: 700;
-    color: var(--muted-2);
-    text-align: center;
-    letter-spacing: 0.06em;
+  @keyframes stream-down {
+    from { transform: translateY(-50%); }
+    to { transform: translateY(0); }
+  }
+  .hero-scard {
     flex-shrink: 0;
-  }
-  .ht-track .lane {
-    flex: 1;
-    height: 100%;
-    background: rgba(0,0,0,0.35);
-    border-radius: 4px;
-    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 14px;
     overflow: hidden;
-  }
-  .ht-clip {
-    position: absolute;
-    top: 2px; bottom: 2px;
-    border-radius: 3px;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.52rem;
-    color: rgba(255,255,255,0.92);
-    padding: 0 0.45rem;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    border: 1px solid rgba(255,255,255,0.18);
-    letter-spacing: 0.02em;
-  }
-  .ht-clip.c1 { background: linear-gradient(180deg, #C566B9, #8E3C84); }
-  .ht-clip.c2 { background: linear-gradient(180deg, #B254A8, #7E4D8C); }
-  .ht-clip.c3 { background: linear-gradient(180deg, #7E4D8C, #4F2D5C); }
-  .ht-clip.c4 { background: linear-gradient(180deg, #E0A6D8, #B254A8); color: #2A1240; }
-  .ht-clip::before {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; top: 0;
-    height: 35%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.22), transparent);
-    pointer-events: none;
-  }
-
-  .ht-wave {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5px;
-    padding: 0 0.4rem;
-    height: 100%;
-    background: rgba(126,77,140,0.14);
-    border-radius: 3px;
     position: relative;
+    border: 1px solid var(--border);
+    background: var(--elevated);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s, border-color 0.3s;
   }
-  .ht-wave i {
-    display: block;
-    flex: 1;
-    background: var(--magenta-2);
-    border-radius: 1px;
-    transform-origin: center;
-    animation: wave-pulse 1.4s ease-in-out infinite;
-  }
-  .ht-wave.alt i { background: var(--violet); animation-duration: 2s; }
-  .ht-wave i:nth-child(1)  { height: 30%; animation-delay: 0.00s; }
-  .ht-wave i:nth-child(2)  { height: 55%; animation-delay: 0.08s; }
-  .ht-wave i:nth-child(3)  { height: 75%; animation-delay: 0.16s; }
-  .ht-wave i:nth-child(4)  { height: 90%; animation-delay: 0.24s; }
-  .ht-wave i:nth-child(5)  { height: 65%; animation-delay: 0.32s; }
-  .ht-wave i:nth-child(6)  { height: 45%; animation-delay: 0.40s; }
-  .ht-wave i:nth-child(7)  { height: 70%; animation-delay: 0.48s; }
-  .ht-wave i:nth-child(8)  { height: 85%; animation-delay: 0.56s; }
-  .ht-wave i:nth-child(9)  { height: 60%; animation-delay: 0.64s; }
-  .ht-wave i:nth-child(10) { height: 40%; animation-delay: 0.72s; }
-  .ht-wave i:nth-child(11) { height: 78%; animation-delay: 0.80s; }
-  .ht-wave i:nth-child(12) { height: 95%; animation-delay: 0.88s; }
-  .ht-wave i:nth-child(13) { height: 50%; animation-delay: 0.96s; }
-  .ht-wave i:nth-child(14) { height: 70%; animation-delay: 1.04s; }
-  .ht-wave i:nth-child(15) { height: 35%; animation-delay: 1.12s; }
-  .ht-wave i:nth-child(16) { height: 60%; animation-delay: 1.20s; }
-  .ht-wave i:nth-child(17) { height: 85%; animation-delay: 1.28s; }
-  .ht-wave i:nth-child(18) { height: 45%; animation-delay: 1.36s; }
-  .ht-wave i:nth-child(19) { height: 75%; animation-delay: 1.44s; }
-  .ht-wave i:nth-child(20) { height: 55%; animation-delay: 1.52s; }
-  @keyframes wave-pulse {
-    0%, 100% { transform: scaleY(0.45); opacity: 0.75; }
-    50%      { transform: scaleY(1);    opacity: 1; }
-  }
-
-  .ht-playhead {
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 12%;
-    width: 2px;
-    background: linear-gradient(180deg, #E0A6D8, var(--magenta));
-    box-shadow: 0 0 12px rgba(224,166,216,0.7), 0 0 4px rgba(224,166,216,0.9);
-    pointer-events: none;
+  .hero-scard:hover {
+    transform: scale(1.06);
+    box-shadow: 0 18px 40px rgba(178,84,168,0.45);
+    border-color: var(--magenta);
     z-index: 5;
-    animation: playhead-scrub 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   }
-  .ht-playhead::before {
-    content: "";
+  .hero-scard img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+  }
+  .hero-scard:hover img { transform: scale(1.08); }
+  .hero-scard .tag {
     position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 14px; height: 14px;
-    background: #E0A6D8;
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-    filter: drop-shadow(0 0 4px rgba(224,166,216,0.8));
-  }
-  @keyframes playhead-scrub {
-    0%   { left: 8%; }
-    45%  { left: 62%; }
-    50%  { left: 62%; }
-    95%  { left: 94%; }
-    100% { left: 8%; }
-  }
-
-  /* Floating chips around timeline */
-  .ht-chip {
-    position: absolute;
-    background: rgba(31,23,48,0.92);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-strong);
-    border-radius: 100px;
-    padding: 0.45rem 0.85rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.65rem;
+    top: 0.55rem; left: 0.55rem;
+    background: rgba(14,10,20,0.8);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     color: var(--text);
-    letter-spacing: 0.08em;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    box-shadow: 0 14px 36px rgba(0,0,0,0.5);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: chip-in 0.8s var(--ease-out) forwards;
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.22rem 0.5rem;
+    border-radius: 100px;
+    border: 1px solid var(--border-strong);
+    z-index: 2;
   }
-  .ht-chip .pip { width: 6px; height: 6px; border-radius: 50%; background: var(--magenta-2); box-shadow: 0 0 8px var(--magenta-2); animation: rec-blink 1.6s ease-in-out infinite; }
-  .ht-chip.top-left { top: -1rem; left: -1rem; animation-delay: 1.6s; transform: rotate(-3deg) translateY(20px); }
-  .ht-chip.top-left.in { animation-name: chip-in-rot-l; }
-  .ht-chip.bot-right { bottom: -1rem; right: -1rem; animation-delay: 1.9s; transform: rotate(2deg) translateY(20px); }
-  .ht-chip.bot-right.in { animation-name: chip-in-rot-r; }
-  @keyframes chip-in { to { opacity: 1; transform: translateY(0); } }
-  /* Apply rotation always via base + override via animation end-state */
-  .ht-chip.top-left { animation-name: chip-in-rot-l; }
-  .ht-chip.bot-right { animation-name: chip-in-rot-r; }
-  @keyframes chip-in-rot-l { to { opacity: 1; transform: rotate(-3deg) translateY(0); } }
-  @keyframes chip-in-rot-r { to { opacity: 1; transform: rotate(2deg) translateY(0); } }
 
   .hero-blob {
     position: absolute;
@@ -2020,144 +1774,13 @@
     .tilt-on-hover { transform: none !important; }
   }
 
-  /* =======================================================
-     FILM STRIP DIVIDER &mdash; sprocket-hole celluloid scrolling
-     unique to video editing services
-     ======================================================= */
-  .film-strip {
-    position: relative;
-    height: 110px;
-    background: #050308;
-    overflow: hidden;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin: 4rem 0;
-  }
-  .film-strip::before,
-  .film-strip::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0;
-    height: 14px;
-    background-image:
-      radial-gradient(circle, #0E0A14 4px, transparent 5px),
-      radial-gradient(circle, #0E0A14 4px, transparent 5px);
-    background-size: 28px 14px;
-    background-repeat: repeat-x;
-    background-position: 0 50%;
-    z-index: 3;
-    pointer-events: none;
-  }
-  .film-strip::before { top: 0; }
-  .film-strip::after  { bottom: 0; }
-  .film-strip-track {
-    position: absolute;
-    top: 14px; bottom: 14px;
-    left: 0;
-    display: flex;
-    gap: 6px;
-    padding: 0 6px;
-    animation: film-roll 40s linear infinite;
-    will-change: transform;
-  }
-  .film-strip:hover .film-strip-track { animation-play-state: paused; }
-  @keyframes film-roll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-  .film-frame {
-    flex-shrink: 0;
-    width: 130px;
-    aspect-ratio: 16/9;
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-    background: var(--elevated);
-    border: 1px solid rgba(178,84,168,0.12);
-  }
-  .film-frame img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: saturate(1.1) contrast(1.05);
-    transition: filter 0.4s, transform 0.6s var(--ease-out);
-  }
-  .film-frame:hover img { filter: saturate(1.4) contrast(1.1); transform: scale(1.08); }
-  .film-frame::after {
-    content: attr(data-tc);
-    position: absolute;
-    bottom: 4px; left: 6px;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.55rem;
-    color: var(--magenta-2);
-    background: rgba(0,0,0,0.6);
-    padding: 1px 5px;
-    border-radius: 2px;
-    letter-spacing: 0.06em;
-  }
-
-  /* =======================================================
-     COLOR-GRADE SWATCH STRIP &mdash; animated LUT preview
-     ======================================================= */
-  .grade-strip {
-    display: flex;
-    gap: 2px;
-    margin: 1.5rem auto 0;
-    max-width: 720px;
-    height: 24px;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 30px rgba(178,84,168,0.18);
-  }
-  .grade-strip i {
-    flex: 1;
-    transform-origin: bottom;
-    animation: grade-shift 6s ease-in-out infinite;
-  }
-  .grade-strip i:nth-child(1)  { background: #2A1240; animation-delay: 0.0s; }
-  .grade-strip i:nth-child(2)  { background: #3A1F4E; animation-delay: 0.1s; }
-  .grade-strip i:nth-child(3)  { background: #4F2D5C; animation-delay: 0.2s; }
-  .grade-strip i:nth-child(4)  { background: #5E3870; animation-delay: 0.3s; }
-  .grade-strip i:nth-child(5)  { background: #6E4480; animation-delay: 0.4s; }
-  .grade-strip i:nth-child(6)  { background: #7E4D8C; animation-delay: 0.5s; }
-  .grade-strip i:nth-child(7)  { background: #8C5897; animation-delay: 0.6s; }
-  .grade-strip i:nth-child(8)  { background: #9D5BA3; animation-delay: 0.7s; }
-  .grade-strip i:nth-child(9)  { background: #AA5CB0; animation-delay: 0.8s; }
-  .grade-strip i:nth-child(10) { background: #B254A8; animation-delay: 0.9s; }
-  .grade-strip i:nth-child(11) { background: #BE5BB3; animation-delay: 1.0s; }
-  .grade-strip i:nth-child(12) { background: #C566B9; animation-delay: 1.1s; }
-  .grade-strip i:nth-child(13) { background: #CF7BC4; animation-delay: 1.2s; }
-  .grade-strip i:nth-child(14) { background: #D88FCC; animation-delay: 1.3s; }
-  .grade-strip i:nth-child(15) { background: #E0A6D8; animation-delay: 1.4s; }
-  .grade-strip i:nth-child(16) { background: #EBBFE1; animation-delay: 1.5s; }
-  @keyframes grade-shift {
-    0%, 100% { filter: hue-rotate(0deg) saturate(1); }
-    50%      { filter: hue-rotate(20deg) saturate(1.4); }
-  }
-
-  /* =======================================================
-     TIMECODE-STYLE TRUST COUNTERS
-     ======================================================= */
-  .trust-bar .trust-item .num {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
-    font-feature-settings: "tnum" 1;
-    letter-spacing: 0.02em;
-  }
-  .trust-bar .trust-item p {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace !important;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 0.65rem;
-  }
-
   /* --- RESPONSIVE --- */
   @media (max-width: 1100px) {
     .hero-reel { width: 100px; height: 100px; top: 6.5rem; }
     .hero-reel-center { width: 44px; height: 44px; }
     .hero-badge-floating { display: none; }
     .hero-scroll { display: none; }
-    .hero { grid-template-columns: 1fr; gap: 0; }
-    .hero-stream, .hero-timeline { display: none; }
+    .hero-stream { display: none; }
     .hero-content { max-width: none; }
     .hero h1 { max-width: none; }
     .what-we-do-grid { grid-template-columns: 1fr; }
@@ -2366,17 +1989,7 @@
   .logo-link .logo-text em { color: #B254A8 !important; font-style: italic !important; }
 
 
-  /* --- LOCATIONS --- */
-  .locations-section { background: var(--bg); }
-  .locations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; max-width: 680px; }
-  .location-card { background: var(--elevated); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem 1.4rem; display: flex; align-items: flex-start; gap: 0.7rem; transition: border-color 0.3s, transform 0.3s; cursor: default; }
-  .location-card:hover { border-color: var(--magenta); transform: translateY(-3px); }
-  .location-card .pin { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .location-card .loc-name { font-weight: 600; font-size: 0.92rem; color: var(--text); line-height: 1.2; }
-  .location-card .loc-note { color: var(--muted-2); font-size: 0.72rem; margin-top: 0.2rem; }
-  @media (max-width: 1100px) { .locations-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px) { .locations-grid { grid-template-columns: 1fr; } }
-
+/* ===== DROPDOWN CSS ===== */
 
   /* ============ SERVICES DROPDOWN ============ */
   nav { gap: 1.8rem; position: relative; }
@@ -2519,21 +2132,51 @@
   }
   .mobile-dd-menu a:hover { color: var(--magenta) !important; }
 
+/* ===== PAGE-SPECIFIC CSS ===== */
+
+  .hero h1 { max-width: 800px; font-size: clamp(2.6rem, 5.6vw, 5rem) !important; }
+  .stub-hero {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 5% 4rem;
+    position: relative;
+  }
+  .stub-emoji {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(4rem, 10vw, 8rem);
+    color: var(--magenta);
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    animation: stub-pulse 3s ease-in-out infinite;
+  }
+  @keyframes stub-pulse {
+    0%,100% { transform: scale(1) rotate(-3deg); opacity: 0.85; }
+    50%     { transform: scale(1.08) rotate(3deg); opacity: 1; }
+  }
+
 </style>
 
-<!-- --- SCROLL PROGRESS BAR --- -->
+
+
+<!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- --- PAGE LOADER --- -->
+<!-- PAGE LOADER -->
 <div class="page-loader" id="pageLoader">
-  <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
+  <div class="page-loader-logo">
+    <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="">
+  </div>
 </div>
 
-<!-- --- CUSTOM CURSOR --- -->
+<!-- CUSTOM CURSOR -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- --- HEADER --- -->
 <!-- HEADER -->
 <header id="siteHeader">
   <a href="index.html" class="logo-link" data-cursor>
@@ -2594,7 +2237,6 @@
   </div>
 </header>
 
-<!-- --- MOBILE NAV --- -->
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
@@ -2613,618 +2255,56 @@
   <a href="contact.html" class="cta-btn"><span>Get a Free Quote</span></a>
 </div>
 
-<!-- --- HERO --- -->
-<section class="hero" id="top">
+<section class="stub-hero">
   <div class="hero-blob" id="heroBlob"></div>
   <div class="hero-blob-2"></div>
 
-  <div class="hero-scroll">
-    <span class="hero-scroll-text">Scroll to explore</span>
-    <span class="hero-scroll-line"></span>
+  <div class="hero-pill">
+    <span class="live-dot"></span>
+    Coming soon
   </div>
 
-  <!-- Rotating disc -->
-  <a href="contact.html" class="hero-reel" data-cursor data-label="Quote">
-    <div class="hero-reel-spin">
-      <svg viewBox="0 0 200 200">
-        <defs>
-          <path id="reelCircle" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
-        </defs>
-        <text>
-          <textPath href="#reelCircle">&#9654; PRESS PLAY &middot; 24FPS &middot; 4K READY &middot; </textPath>
-        </text>
-      </svg>
-    </div>
-    <div class="hero-reel-center">&#9654;</div>
-  </a>
+  <div class="stub-emoji">Web</div>
 
-  <!-- Floating badge -->
-  <div class="hero-badge-floating">
-    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-    <div class="text">
-      <strong>100+ editors</strong>
-      <span>cinematic quality</span>
-    </div>
-  </div>
+  <h1 style="text-align: center;">
+    <span class="word"><span>Website</span></span> <span class="word"><span><em>Development</em></span></span>
+  </h1>
 
-  <div class="hero-content">
-    <div class="hero-pill">
-      <span class="live-dot"></span>
-      Now accepting video editing projects
-    </div>
+  <p class="hero-sub" style="max-width: 640px; margin: 1.5rem auto 0; text-align: center;">
+    Fast, scalable, SEO-ready websites engineered for performance. Custom design, conversion-focused layouts, and built to grow with your business. Full content coming soon &mdash; reach out to discuss your project.
+  </p>
 
-    <h1>
-      <span class="word"><span>Hire</span></span>
-      <span class="word"><span>Professional</span></span><br>
-      <span class="word"><span><em>Video Editing</em></span></span><br>
-      <span class="word"><span>Services for</span></span>
-      <span class="word"><span>Marketing Content</span></span>
-    </h1>
-
-    <p class="hero-sub">Cirova Studio provides professional video editing services using Premiere Pro, high-tech workflows, and expert editors delivering scalable video content for marketing, social media, and brand campaigns.</p>
-
-    <div class="hero-ctas">
-      <a href="contact.html" class="cta-btn large" data-cursor><span>Request a Custom Video Editing Package</span></a>
-      <a href="#services" class="btn-outline" data-cursor>
-        View Our Services
-        <span class="arrow-circle">
-          <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </a>
-    </div>
-
-    <div class="trust-bar">
-      <div class="trust-item">
-        <div class="num" data-count="100">0<em>+</em></div>
-        <p>Editors</p>
-      </div>
-      <div class="trust-item">
-        <div class="num" data-count="200">0<em>+</em></div>
-        <p>Videos Delivered</p>
-      </div>
-      <div class="trust-item">
-        <div class="num" data-count="50">0<em>+</em></div>
-        <p>Clients Served</p>
-      </div>
-      <div class="trust-item">
-        <div class="num" data-count="99">0<em>%</em></div>
-        <p>Satisfaction Rate</p>
-      </div>
-    </div>
-
-    <!-- Animated color-grade swatch / LUT preview -->
-    <div class="grade-strip" aria-hidden="true">
-      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-    </div>
-  </div>
-
-  <!-- -- HERO TIMELINE EDITOR (unique signature for video editing services) -- -->
-  <div class="hero-timeline" aria-hidden="true">
-    <div class="ht-window" data-cursor data-label="Preview">
-      <div class="ht-bar">
-        <span class="ht-dot r"></span>
-        <span class="ht-dot y"></span>
-        <span class="ht-dot g"></span>
-        <span class="ht-title">CIROVA &mdash; Project_01.prproj</span>
-        <span class="ht-rec">REC</span>
-        <span class="ht-tc">00:01:23:14</span>
-      </div>
-      <div class="ht-preview">
-        <div class="ht-play"></div>
-        <div class="ht-frame">FRAME 02014 / 04320</div>
-        <div class="ht-resolution">3840&times;2160 &middot; 24fps</div>
-      </div>
-      <div class="ht-ruler">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
-      <div class="ht-tracks">
-        <div class="ht-track">
-          <span class="lbl">V3</span>
-          <div class="lane">
-            <div class="ht-clip c4" style="left:6%; right:62%;">TITLE.mogrt</div>
-            <div class="ht-clip c1" style="left:72%; right:8%;">FX_01</div>
-          </div>
-        </div>
-        <div class="ht-track">
-          <span class="lbl">V2</span>
-          <div class="lane">
-            <div class="ht-clip c2" style="left:12%; right:42%;">B-Roll_04.mov</div>
-            <div class="ht-clip c1" style="left:60%; right:14%;">Cutaway.mov</div>
-          </div>
-        </div>
-        <div class="ht-track main">
-          <span class="lbl">V1</span>
-          <div class="lane">
-            <div class="ht-clip c1" style="left:4%; right:6%;">Main_Footage_01.mov</div>
-          </div>
-        </div>
-        <div class="ht-track">
-          <span class="lbl">A1</span>
-          <div class="lane">
-            <div class="ht-wave">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            </div>
-          </div>
-        </div>
-        <div class="ht-track">
-          <span class="lbl">A2</span>
-          <div class="lane">
-            <div class="ht-wave alt">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            </div>
-          </div>
-        </div>
-        <div class="ht-playhead"></div>
-      </div>
-    </div>
-    <div class="ht-chip top-left"><span class="pip"></span>4K &middot; COLOR GRADED</div>
-    <div class="ht-chip bot-right"><span class="pip"></span>24h DELIVERY</div>
+  <div class="hero-ctas" style="justify-content: center; margin-top: 2rem;">
+    <a href="contact.html" class="cta-btn large" data-cursor><span>Talk to Our Team</span></a>
+    <a href="contact.html" class="btn-outline" data-cursor>
+      Request Custom Proposal
+      <span class="arrow-circle">
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
   </div>
 </section>
 
-<!-- --- LOGO MARQUEE --- -->
-<div class="logo-marquee">
-  <div class="logo-marquee-label">Trusted by ambitious brands</div>
-  <div class="logo-marquee-track">
-    <span>Lumen<em>Co.</em></span>
-    <span>Northwind</span>
-    <span>Halo<em>Goods</em></span>
-    <span>Foundry</span>
-    <span>BrightLane</span>
-    <span>Stellar<em>&amp;Co</em></span>
-    <span>Meridian</span>
-    <span>Kinfolk</span>
-    <span>Lumen<em>Co.</em></span>
-    <span>Northwind</span>
-    <span>Halo<em>Goods</em></span>
-    <span>Foundry</span>
-    <span>BrightLane</span>
-    <span>Stellar<em>&amp;Co</em></span>
-    <span>Meridian</span>
-    <span>Kinfolk</span>
-  </div>
-</div>
-
-<!-- --- OUR VIDEO EDITING SERVICES --- -->
-<section class="what-we-do" id="services">
-  <div class="what-we-do-marquee" aria-hidden="true">
-    <div class="what-we-do-marquee-track">
-      <span><em>Premiere Pro</em></span><span class="dot">&middot;</span>
-      <span>Color Grade</span><span class="dot">&middot;</span>
-      <span><em>After Effects</em></span><span class="dot">&middot;</span>
-      <span>Motion</span><span class="dot">&middot;</span>
-      <span><em>Corporate</em></span><span class="dot">&middot;</span>
-      <span>Social</span><span class="dot">&middot;</span>
-      <span><em>YouTube</em></span><span class="dot">&middot;</span>
-      <span>Cinematic</span><span class="dot">&middot;</span>
-      <span><em>Premiere Pro</em></span><span class="dot">&middot;</span>
-      <span>Color Grade</span><span class="dot">&middot;</span>
-      <span><em>After Effects</em></span><span class="dot">&middot;</span>
-      <span>Motion</span><span class="dot">&middot;</span>
-      <span><em>Corporate</em></span><span class="dot">&middot;</span>
-      <span>Social</span><span class="dot">&middot;</span>
-      <span><em>YouTube</em></span><span class="dot">&middot;</span>
-      <span>Cinematic</span><span class="dot">&middot;</span>
-    </div>
-  </div>
-
-  <div class="what-header reveal">
-    <div class="section-eyebrow" style="justify-content:center;">What We Offer</div>
-    <h2 class="section-title">Full-Spectrum <em>Video Editing</em><br>for Every Format.</h2>
-    <p class="section-sub">Cirova Studio offers a wide range of professional video editing services designed to support different content formats, marketing strategies, and distribution platforms. Our editorial teams specialize in multiple content types so every project receives editors with the right expertise.</p>
-  </div>
-
-  <div class="what-we-do-grid">
-    <div class="what-list" id="whatList">
-      <div class="what-item active" data-img="0">
-        <div class="what-item-head">
-          <div class="what-item-title">Corporate &amp; Commercial <em>Video Editing</em></div>
-          <div class="what-item-num">01</div>
-        </div>
-        <div class="what-item-desc">Brand campaigns, internal communications, product launches, and investor presentations &mdash; our editors create polished, broadcast-ready content using multi-camera editing, cinematic color grading in DaVinci Resolve, motion graphics in After Effects, and professional audio mixing.</div>
-      </div>
-      <div class="what-item" data-img="1">
-        <div class="what-item-head">
-          <div class="what-item-title">Social Media <em>Video Editing</em></div>
-          <div class="what-item-num">02</div>
-        </div>
-        <div class="what-item-desc">Platform-specific editing for Instagram Reels, TikTok, YouTube Shorts, and LinkedIn. Vertical video optimization, viral hook creation, subtitle integration, branded transitions, and batch editing for large social campaigns &mdash; all designed to stop the scroll and drive engagement.</div>
-      </div>
-      <div class="what-item" data-img="2">
-        <div class="what-item-head">
-          <div class="what-item-title">YouTube Editing for <em>Creators &amp; Brands</em></div>
-          <div class="what-item-num">03</div>
-        </div>
-        <div class="what-item-desc">Structured storytelling and viewer retention strategies for YouTube channels. Narrative pacing, jump-cut editing, thumbnail and intro optimization, animated overlays, sound enhancement, and long-form video repurposing for Shorts &mdash; helping creators and brands scale their upload schedules.</div>
-      </div>
-      <div class="what-item" data-img="3">
-        <div class="what-item-head">
-          <div class="what-item-title">Motion Graphics &amp; <em>Animated Videos</em></div>
-          <div class="what-item-num">04</div>
-        </div>
-        <div class="what-item-desc">2D and 3D motion graphics, product explainer videos, animated brand intros and outros, visual effects compositing, and data visualization animations &mdash; helping brands communicate complex ideas clearly while maintaining strong visual identity.</div>
-      </div>
-    </div>
-
-    <div class="what-visual" id="whatVisual">
-      <img src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?w=900&q=80&auto=format&fit=crop" class="active" alt="Corporate video editing">
-      <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=900&q=80&auto=format&fit=crop" alt="Social media video editing">
-      <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80&auto=format&fit=crop" alt="YouTube video editing">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop" alt="Motion graphics and animation">
-    </div>
-  </div>
-</section>
-
-<!-- --- ROTATED MARQUEE --- -->
-<div class="marquee-band">
-  <div class="marquee-band-track">
-    <span><em>Premiere Pro.</em></span><span class="dot">&#9679;</span>
-    <span>Color Grading.</span><span class="dot">&#9679;</span>
-    <span><em>After Effects.</em></span><span class="dot">&#9679;</span>
-    <span>Motion Graphics.</span><span class="dot">&#9679;</span>
-    <span><em>Social Reels.</em></span><span class="dot">&#9679;</span>
-    <span>YouTube.</span><span class="dot">&#9679;</span>
-    <span><em>Cinematic.</em></span><span class="dot">&#9679;</span>
-    <span>Sound Design.</span><span class="dot">&#9679;</span>
-    <span><em>Premiere Pro.</em></span><span class="dot">&#9679;</span>
-    <span>Color Grading.</span><span class="dot">&#9679;</span>
-    <span><em>After Effects.</em></span><span class="dot">&#9679;</span>
-    <span>Motion Graphics.</span><span class="dot">&#9679;</span>
-  </div>
-</div>
-
-<!-- --- WHY BRANDS CHOOSE CIROVA STUDIO --- -->
-<section class="why-us" id="why">
-  <div class="why-grid">
-    <div class="reveal">
-      <div class="section-eyebrow">Why Choose Us</div>
-      <h2 class="section-title">Why Brands Choose Cirova Studio for <em>Professional Video Editing.</em></h2>
-      <p class="section-sub">Brands need speed, consistency, and scalable video production. Cirova Studio delivers with 100+ professional editors, advanced workflows, and cinematic quality across every project.</p>
-
-      <div class="why-image">
-        <img src="https://images.unsplash.com/photo-1543536448-d209d2d13a1c?w=900&q=80&auto=format&fit=crop" alt="Cirova Studio video editing team">
-        <div class="why-image-stat">
-          <div class="num">100+</div>
-          <span class="lbl">editors on team</span>
-        </div>
-        <div class="why-image-badge">Scalable. Fast. Consistent.</div>
-      </div>
-    </div>
-
-    <div class="why-cards reveal">
-      <div class="why-card">
-        <div class="check">&#10022;</div>
-        <h3>Dedicated Editors, Motion Designers <em>&amp; Colorists</em></h3>
-        <p>Our team includes specialized editors for every video type, motion designers for animations and visual effects, and professional colorists for cinematic color grading. Every project is handled by editors with expertise in that specific format.</p>
-      </div>
-      <div class="why-card">
-        <div class="check">&#9889;</div>
-        <h3>Scalable Production for <em>Agencies &amp; Brands</em></h3>
-        <p>Handle multiple campaigns simultaneously without compromising quality. Our scalable post-production pipeline is built for agencies and brands that require consistent output across large volumes of video content.</p>
-      </div>
-      <div class="why-card">
-        <div class="check">&#9881;</div>
-        <h3>Advanced Collaborative <em>Editing Workflows</em></h3>
-        <p>Using Frame.io and cloud-based review platforms, clients can provide frame-specific feedback directly on the video timeline &mdash; reducing revision cycles and keeping every project on schedule.</p>
-      </div>
-      <div class="why-card">
-        <div class="check">&#9678;</div>
-        <h3>Multi-Platform <em>Optimization</em></h3>
-        <p>Every video is exported and optimized for your specific platforms &mdash; social media, YouTube, websites, advertising campaigns, and broadcast channels &mdash; ensuring maximum performance wherever your audience watches.</p>
-      </div>
-      <div class="why-card" style="grid-column: span 2;">
-        <div class="check">&#9733;</div>
-        <h3>Industry-Leading Tools: Premiere Pro, <em>DaVinci Resolve &amp; After Effects</em></h3>
-        <p>Our editors exclusively use professional-grade tools &mdash; Adobe Premiere Pro for editing, DaVinci Resolve for color grading, Adobe After Effects for motion graphics, and Adobe Audition for audio engineering &mdash; ensuring broadcast-quality output on every deliverable.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- --- PROCESS --- -->
-<section id="process" class="process-section-anchor">
-  <div class="reveal">
-    <div class="section-eyebrow">Our Workflow</div>
-    <h2 class="section-title">Our High-Tech Video <em>Editing Workflow.</em></h2>
-    <p class="section-sub">Delivering reliable professional video editing services requires a structured workflow and advanced technology. Our streamlined post-production pipeline is designed for speed, collaboration, and precision.</p>
-  </div>
-
-  <div class="process-cards reveal">
-    <div class="process-card">
-      <div class="process-card-num">01</div>
-      <h3>Secure Footage <em>Ingestion</em></h3>
-      <p>Client footage uploaded to secure enterprise cloud storage where files are organized, tagged, and proxy-generated for efficient editing of large media files.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-card-num">02</div>
-      <h3>Editorial <em>Assembly</em></h3>
-      <p>Editors construct the narrative timeline using Adobe Premiere Pro, Final Cut Pro, and DaVinci Resolve, ensuring seamless storytelling and efficient workflow management.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-card-num">03</div>
-      <h3>Motion Graphics <em>&amp; Visual Effects</em></h3>
-      <p>Specialized artists integrate animations, overlays, and visual effects using Adobe After Effects, Cinema 4D, and professional compositing tools.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-card-num">04</div>
-      <h3>Color Correction <em>&amp; Grading</em></h3>
-      <p>Colorists enhance visual tone and cinematic quality using DaVinci Resolve advanced grading tools, ensuring brand-consistent visual identity across every frame.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-card-num">05</div>
-      <h3>Audio <em>Engineering</em></h3>
-      <p>Sound engineers enhance clarity, mix music, and balance audio levels using Adobe Audition and AI audio enhancement platforms for professional sound quality.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-card-num">06</div>
-      <h3>Client Review <em>&amp; Revisions</em></h3>
-      <p>Using Frame.io, clients provide frame-specific feedback directly on the video timeline &mdash; enabling precise revisions with minimal back-and-forth.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-card-num">07</div>
-      <h3>Multi-Platform <em>Delivery</em></h3>
-      <p>Final videos exported and optimized for social media, YouTube, websites, advertising campaigns, and broadcast channels &mdash; ready to go live.</p>
-    </div>
-  </div>
-</section>
-
-<!-- --- INDUSTRIES WE SERVE --- -->
-<section class="audience-section" id="industries">
-  <div class="audience-grid-wrap">
-    <div class="reveal">
-      <div class="section-eyebrow">Industries We Serve</div>
-      <h2 class="section-title">Video Editing for <em>Every Industry.</em></h2>
-      <p class="section-sub">Our professional video editing services support businesses and creators across multiple industries. Whether a business needs a single campaign video or ongoing editing support, Cirova Studio provides scalable post-production.</p>
-      <div class="audience-grid">
-        <span class="audience-tag" data-cursor>&#128227; Marketing &amp; Ad Agencies</span>
-        <span class="audience-tag" data-cursor>&#128187; SaaS &amp; Technology</span>
-        <span class="audience-tag" data-cursor>&#128722; E-commerce Brands</span>
-        <span class="audience-tag" data-cursor>&#127916; YouTube Creators</span>
-        <span class="audience-tag" data-cursor>&#127970; Corporate Organizations</span>
-        <span class="audience-tag" data-cursor>&#128218; Education &amp; Training</span>
-        <span class="audience-tag" data-cursor>&#127968; Real Estate</span>
-        <span class="audience-tag" data-cursor>&#127973; Healthcare</span>
-      </div>
-    </div>
-
-    <div class="audience-collage reveal">
-      <div class="audience-photo a-p1">
-        <img src="https://i.pravatar.cc/300?img=68" alt="Marketing agency">
-        <span class="a-tag">Marketing</span>
-      </div>
-      <div class="audience-photo a-p2">
-        <img src="https://i.pravatar.cc/300?img=8" alt="Corporate video">
-        <span class="a-tag">Corporate</span>
-      </div>
-      <div class="audience-photo a-p3">
-        <img src="https://i.pravatar.cc/300?img=49" alt="E-commerce brand">
-        <span class="a-tag">E-commerce</span>
-      </div>
-      <div class="audience-photo a-p4">
-        <img src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?w=600&q=80&auto=format&fit=crop" alt="YouTube creators">
-        <span class="a-tag">Creators</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- --- FILM STRIP DIVIDER (replaces homepage text marquee) --- -->
-<div class="film-strip" aria-hidden="true">
-  <div class="film-strip-track">
-    <div class="film-frame" data-tc="00:00:01:08"><img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:02:14"><img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:03:22"><img src="https://images.unsplash.com/photo-1493804714600-6edb1cd93080?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:05:06"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:06:17"><img src="https://images.unsplash.com/photo-1543536448-d209d2d13a1c?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:08:03"><img src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:09:11"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:10:20"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <!-- duplicate set for seamless loop -->
-    <div class="film-frame" data-tc="00:00:01:08"><img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:02:14"><img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:03:22"><img src="https://images.unsplash.com/photo-1493804714600-6edb1cd93080?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:05:06"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:06:17"><img src="https://images.unsplash.com/photo-1543536448-d209d2d13a1c?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:08:03"><img src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:09:11"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400&q=80&auto=format&fit=crop" alt=""></div>
-    <div class="film-frame" data-tc="00:00:10:20"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80&auto=format&fit=crop" alt=""></div>
-  </div>
-</div>
-
-<!-- --- LOCATIONS --- -->
-<section class="locations-section" id="locations">
-  <div class="reveal">
-    <div class="section-eyebrow">Service Locations</div>
-    <h2 class="section-title">Professional Video Editing <em>Services Near You.</em></h2>
-    <p class="section-sub">Cirova Studio provides professional video editing services to clients across major cities in India and internationally. Our remote-first model ensures brands receive the same quality service regardless of location.</p>
-    <div class="locations-grid">
-      <div class="location-card">
-        <span class="pin">&#128205;</span>
-        <div>
-          <div class="loc-name">Delhi NCR</div>
-          <div class="loc-note">Primary hub</div>
-        </div>
-      </div>
-      <div class="location-card">
-        <span class="pin">&#128205;</span>
-        <div>
-          <div class="loc-name">Noida</div>
-          <div class="loc-note">Tech corridor</div>
-        </div>
-      </div>
-      <div class="location-card">
-        <span class="pin">&#128205;</span>
-        <div>
-          <div class="loc-name">Gurgaon</div>
-          <div class="loc-note">Corporate belt</div>
-        </div>
-      </div>
-      <div class="location-card">
-        <span class="pin">&#128205;</span>
-        <div>
-          <div class="loc-name">Mumbai</div>
-          <div class="loc-note">Media &amp; entertainment</div>
-        </div>
-      </div>
-      <div class="location-card">
-        <span class="pin">&#128205;</span>
-        <div>
-          <div class="loc-name">Bangalore</div>
-          <div class="loc-note">SaaS &amp; startups</div>
-        </div>
-      </div>
-      <div class="location-card">
-        <span class="pin">&#127760;</span>
-        <div>
-          <div class="loc-name">International</div>
-          <div class="loc-note">Remote-first worldwide</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- --- TESTIMONIALS --- -->
-<section class="testimonials">
-  <div class="reveal">
-    <div class="section-eyebrow">What clients say</div>
-    <h2 class="section-title">Words from <em>real brands.</em></h2>
-  </div>
-
-  <div class="testimonials-track">
-    <div class="test-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">"Cirova's video editors replaced our entire post-production workflow. <em>Faster turnarounds,</em> better quality, zero management overhead."</p>
-      <div class="test-author">
-        <img src="https://i.pravatar.cc/300?img=47" alt="">
-        <div><div class="name">Aisha Rahman</div><div class="role">Founder, Lumen Co.</div></div>
-      </div>
-    </div>
-    <div class="test-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">"Our reels finally <em>feel like our brand.</em> The color grading and motion work from Cirova is on a completely different level."</p>
-      <div class="test-author">
-        <img src="https://i.pravatar.cc/300?img=33" alt="">
-        <div><div class="name">Daniel Park</div><div class="role">Head of Growth, Northwind</div></div>
-      </div>
-    </div>
-    <div class="test-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">"We send raw footage and get back <em>broadcast-ready videos.</em> The workflow with Frame.io feedback is seamless &mdash; one team, zero chaos."</p>
-      <div class="test-author">
-        <img src="https://i.pravatar.cc/300?img=12" alt="">
-        <div><div class="name">Maya Sharma</div><div class="role">Marketing Lead, Halo Goods</div></div>
-      </div>
-    </div>
-    <div class="test-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">"24-hour turnaround on social cuts. <em>Every asset has a job</em> &mdash; and the editing team ensures it does exactly that."</p>
-      <div class="test-author">
-        <img src="https://i.pravatar.cc/300?img=15" alt="">
-        <div><div class="name">Omar Khalid</div><div class="role">CEO, Foundry</div></div>
-      </div>
-    </div>
-    <div class="test-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">"Cirova's video editors replaced our entire post-production workflow. <em>Faster turnarounds,</em> better quality, zero management overhead."</p>
-      <div class="test-author">
-        <img src="https://i.pravatar.cc/300?img=47" alt="">
-        <div><div class="name">Aisha Rahman</div><div class="role">Founder, Lumen Co.</div></div>
-      </div>
-    </div>
-    <div class="test-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">"Our reels finally <em>feel like our brand.</em> The color grading and motion work from Cirova is on a completely different level."</p>
-      <div class="test-author">
-        <img src="https://i.pravatar.cc/300?img=33" alt="">
-        <div><div class="name">Daniel Park</div><div class="role">Head of Growth, Northwind</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- --- CTA BANNER --- -->
+<!-- CTA BANNER -->
 <section class="cta-banner" id="contact">
-  <div class="reveal">
-    <div class="section-eyebrow">Request a Quote</div>
-    <h2>Ready to Elevate Your Video Content with <em>Expert Editing?</em></h2>
-    <p>Our team uses professional tools like Premiere Pro, After Effects, and DaVinci Resolve to deliver polished, high-performing videos. Professional video editing can make the difference between ordinary content and impactful storytelling.</p>
-    <div class="cta-banner-btns">
-      <a href="mailto:hello@cirovastudio.com" class="cta-btn large" data-cursor><span>Request a Custom Quote</span></a>
-      <a href="mailto:hello@cirovastudio.com" class="btn-outline" data-cursor>
-        Contact Us
-        <span class="arrow-circle">
-          <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </a>
-    </div>
+  <h2>Ready to build your <em>next project</em>?</h2>
+  <p>Drop us a message and our team will reach out within one business day to discuss your goals.</p>
+  <div class="hero-ctas" style="justify-content: center;">
+    <a href="mailto:cirovastudio@gmail.com" class="cta-btn large" data-cursor><span>Email Cirova Studio</span></a>
+    <a href="tel:+919877147660" class="btn-outline" data-cursor>
+      Call +91 9877147660
+      <span class="arrow-circle">
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
   </div>
 </section>
 
-<!-- --- FAQ --- -->
-<section class="faq-section" id="faq">
-  <div class="reveal" style="text-align:center;">
-    <div class="section-eyebrow" style="justify-content:center;">Common Questions</div>
-    <h2 class="section-title" style="margin:0 auto;">Frequently Asked <em>Questions.</em></h2>
-  </div>
-  <div class="faq-grid">
-    <div class="faq-item">
-      <button class="faq-q">
-        <span class="faq-q-text">What types of video editing services does Cirova Studio offer?</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="faq-a">Cirova Studio offers corporate &amp; commercial video editing, social media video editing, YouTube channel editing for creators and brands, motion graphics and animated explainer videos, and branded video content for advertising campaigns.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">
-        <span class="faq-q-text">What software does Cirova Studio use for video editing?</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="faq-a">Our editors primarily use Adobe Premiere Pro for editing, DaVinci Resolve for professional color grading, Adobe After Effects for motion graphics and visual effects, and Adobe Audition for audio engineering and sound design.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">
-        <span class="faq-q-text">How does the video editing process work?</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="faq-a">After submitting your footage via our secure cloud platform, your dedicated editor creates an initial cut based on your brief. We share this through Frame.io for your review, collect your feedback, implement revisions, and deliver final files optimized for all your platforms.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">
-        <span class="faq-q-text">What is the typical turnaround time for video editing projects?</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="faq-a">Turnaround times vary based on video length and complexity. Social media short-form cuts typically deliver within 24&ndash;48 hours. Corporate videos and branded content generally take 3&ndash;5 business days. We offer rush turnarounds for time-sensitive campaigns.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">
-        <span class="faq-q-text">Can you handle large volumes of videos for social media campaigns?</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="faq-a">Yes. Our scalable team structure allows us to handle large batch editing projects and high-volume social media campaigns. We can assign multiple editors to large projects and maintain consistent quality and brand identity across all deliverables.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">
-        <span class="faq-q-text">Do you offer color grading as a separate service?</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="faq-a">Yes. Professional color grading using DaVinci Resolve is available as both an integrated part of our full editing service and as a standalone service for footage that has already been edited. Our colorists are experienced in both commercial and cinematic grading styles.</div>
-    </div>
-  </div>
-</section>
 
-<!-- --- OUTRO --- -->
-<div class="outro-text">
-  <h2>Cirova<em>Studio</em>&trade;</h2>
-</div>
 
-<!-- --- FOOTER --- -->
+
 <footer>
-    <div class="footer-top">
+  <div class="footer-top">
     <div class="footer-brand">
       <a href="index.html" class="logo-link" data-cursor>
         <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
@@ -3240,19 +2320,17 @@
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
+        <li><a href="smm-services.html">SMM Services</a></li>
         <li><a href="video-editing-services.html">Video Editing</a></li>
-        <li><a href="video-editing-services.html">Social Media Management</a></li>
-        <li><a href="video-editing-services.html">Website Development</a></li>
-        <li><a href="video-editing-services.html">Performance Ads</a></li>
-        <li><a href="video-editing-services.html">SEO &amp; Content</a></li>
-        <li><a href="video-editing-services.html">Brand Design</a></li>
+        <li><a href="website-development.html">Website Development</a></li>
+        <li><a href="ppc-services.html">PPC Services</a></li>
+        <li><a href="digital-marketing-services.html">Digital Marketing</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="video-editing-services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -3267,17 +2345,14 @@
       </ul>
     </div>
   </div>
-
   <div class="footer-bottom">
     <p>&copy; 2026 Cirova Studio. All rights reserved.</p>
-    <div style="display: flex; gap: 1.5rem;">
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
-    </div>
+    <h2>Cirova<em>Studio</em>&trade;</h2>
   </div>
 </footer>
 
 <script>
+
 (function () {
   /* --- PAGE LOADER --- */
   window.addEventListener('load', () => {
@@ -3475,4 +2550,28 @@
     });
   });
 })();
+
+/* ===== DROPDOWN JS ===== */
+
+  // Services dropdown - mobile click toggle
+  document.querySelectorAll('.mobile-dd-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.mobile-dd').classList.toggle('open');
+    });
+  });
+  // Desktop dropdown - click also toggles (for touch devices that don't trigger :hover)
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const dd = btn.closest('.nav-dropdown');
+      const isOpen = dd.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      e.stopPropagation();
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+  });
+
 </script>
