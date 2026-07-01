@@ -342,7 +342,7 @@
   /* Floating notification badge */
   .hero-badge-floating {
     position: absolute;
-    top: 12rem; left: 4%;
+    top: 5rem; left: 50%; right: auto;
     z-index: 4;
     background: var(--elevated);
     border: 1px solid var(--border-strong);
@@ -2642,6 +2642,188 @@
     .contact-form-wrap { padding: 2rem 1.4rem; }
   }
 
+
+  /* === WORKFLOW TIMELINE (redesigned) === */
+  .wf-timeline { position: relative; max-width: 860px; margin: 3.5rem auto 0; }
+  .wf-timeline::before {
+    content: '';
+    position: absolute;
+    left: 31px; top: 12px; bottom: 12px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--magenta), var(--violet) 60%, transparent);
+  }
+  .wf-step { position: relative; display: flex; gap: 1.6rem; padding-bottom: 1.4rem; align-items: stretch; }
+  .wf-step:last-child { padding-bottom: 0; }
+  .wf-node {
+    flex-shrink: 0;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--violet), var(--magenta));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-style: italic; font-size: 1.45rem; color: #fff;
+    box-shadow: 0 0 0 6px var(--bg), 0 10px 30px rgba(178,84,168,0.35);
+    z-index: 1; position: relative;
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+  }
+  .wf-step:hover .wf-node {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 6px var(--bg), 0 0 34px rgba(178,84,168,0.6);
+  }
+  .wf-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.4rem 1.7rem;
+    transition: transform 0.4s var(--ease-out), border-color 0.3s, box-shadow 0.3s;
+  }
+  .wf-step:hover .wf-card {
+    transform: translateX(6px);
+    border-color: var(--magenta);
+    box-shadow: 0 16px 40px rgba(178,84,168,0.18);
+  }
+  .wf-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.22em;
+    color: var(--magenta-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    padding: 0.2rem 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+  .wf-card h3 {
+    font-family: var(--font-display); font-size: 1.35rem; font-weight: 400;
+    letter-spacing: -0.015em; margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .wf-card h3 em { font-style: italic; color: var(--magenta); }
+  .wf-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.65; }
+  @media (max-width: 640px) {
+    .wf-timeline::before { left: 25px; }
+    .wf-node { width: 52px; height: 52px; font-size: 1.15rem; }
+    .wf-step { gap: 1rem; }
+    .wf-card { padding: 1.1rem 1.2rem; }
+  }
+
+
+  /* === SERVICE LOCATIONS (redesigned, 2-col with animated globe) === */
+  .locations-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .loc-content .locations-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: none;
+    margin-top: 1.8rem;
+  }
+  .loc-visual { position: relative; }
+  .loc-globe {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 40px 90px -20px rgba(0,0,0,0.7), 0 0 70px rgba(178,84,168,0.14);
+  }
+  .loc-globe img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(1.15) brightness(0.85) contrast(1.05);
+  }
+  .loc-globe::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 42%, rgba(178,84,168,0.12), transparent 55%),
+                linear-gradient(180deg, transparent 55%, rgba(14,10,20,0.65));
+    pointer-events: none;
+  }
+  .loc-ping {
+    position: absolute;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--magenta-2);
+    box-shadow: 0 0 12px 2px rgba(197,102,185,0.7);
+    z-index: 2;
+  }
+  .loc-ping::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    background: rgba(197,102,185,0.5);
+    animation: loc-ping 2.6s var(--ease-out) infinite;
+  }
+  @keyframes loc-ping {
+    0%   { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(5.5); opacity: 0; }
+  }
+  .loc-ping.p1 { top: 40%; left: 30%; }
+  .loc-ping.p2 { top: 55%; left: 60%; }
+  .loc-ping.p2::before { animation-delay: 0.6s; }
+  .loc-ping.p3 { top: 32%; left: 66%; }
+  .loc-ping.p3::before { animation-delay: 1.2s; }
+  .loc-ping.p4 { top: 62%; left: 42%; }
+  .loc-ping.p4::before { animation-delay: 1.8s; }
+  .loc-ping.p5 { top: 46%; left: 78%; }
+  .loc-ping.p5::before { animation-delay: 2.4s; }
+  .loc-scan {
+    position: absolute; left: 0; right: 0; top: 0;
+    height: 38%;
+    background: linear-gradient(180deg, rgba(178,84,168,0.22), transparent);
+    z-index: 1;
+    animation: loc-scan 4.5s linear infinite;
+  }
+  @keyframes loc-scan {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(280%); }
+  }
+  .loc-globe-chip {
+    position: absolute;
+    bottom: 1rem; left: 1rem;
+    z-index: 3;
+    background: rgba(14,10,20,0.82);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .loc-globe-chip .pip {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #4ADE80; box-shadow: 0 0 10px #4ADE80;
+  }
+  .loc-stat {
+    display: flex; align-items: center; gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.1rem 1.4rem;
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  .loc-stat-num {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 2.2rem; color: var(--magenta); line-height: 1;
+  }
+  .loc-stat-lbl { color: var(--muted); font-size: 0.9rem; line-height: 1.4; }
+  @media (max-width: 900px) {
+    .locations-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .loc-visual { max-width: 460px; margin: 0 auto; width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .loc-content .locations-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* === CIROVA STUDIO TRADEMARK LINE === */
+  .cs-tm-band { text-align: center; padding: 0.5rem 5% 3.5rem; }
+  .cs-tm {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 1.6rem; color: var(--muted); letter-spacing: 0.01em;
+  }
+  .cs-tm sup { font-size: 0.5em; }
+
 </style>
 
 </head>
@@ -3053,47 +3235,68 @@
 
 <!-- --- PROCESS --- -->
 <section id="process" class="process-section-anchor">
-  <div class="reveal">
-    <div class="section-eyebrow">Our Workflow</div>
-    <h2 class="section-title">Our High-Tech Video <em>Editing Workflow.</em></h2>
-    <p class="section-sub">Delivering reliable professional video editing services requires a structured workflow and advanced technology. Our streamlined post-production pipeline is designed for speed, collaboration, and precision.</p>
+  <div class="reveal" style="text-align:center;">
+    <div class="section-eyebrow" style="justify-content:center;">Our Workflow</div>
+    <h2 class="section-title" style="margin:0 auto;">Our High-Tech Video <em>Editing Workflow.</em></h2>
+    <p class="section-sub" style="max-width:720px;margin:1.2rem auto 0;">Delivering reliable professional video editing services requires a structured workflow and advanced technology. Our streamlined post-production pipeline is designed for speed, collaboration, and precision.</p>
   </div>
 
-  <div class="process-cards reveal">
-    <div class="process-card">
-      <div class="process-card-num">01</div>
-      <h3>Secure Footage <em>Ingestion</em></h3>
-      <p>Client footage uploaded to secure enterprise cloud storage where files are organized, tagged, and proxy-generated for efficient editing of large media files.</p>
+  <div class="wf-timeline">
+    <div class="wf-step reveal">
+      <div class="wf-node"><span>01</span></div>
+      <div class="wf-card">
+        <span class="wf-tag">Ingest</span>
+        <h3>Secure Footage <em>Ingestion</em></h3>
+        <p>Client footage uploaded to secure enterprise cloud storage where files are organized, tagged, and proxy-generated for efficient editing of large media files.</p>
+      </div>
     </div>
-    <div class="process-card">
-      <div class="process-card-num">02</div>
-      <h3>Editorial <em>Assembly</em></h3>
-      <p>Editors construct the narrative timeline using Adobe Premiere Pro, Final Cut Pro, and DaVinci Resolve, ensuring seamless storytelling and efficient workflow management.</p>
+    <div class="wf-step reveal">
+      <div class="wf-node"><span>02</span></div>
+      <div class="wf-card">
+        <span class="wf-tag">Edit</span>
+        <h3>Editorial <em>Assembly</em></h3>
+        <p>Editors construct the narrative timeline using Adobe Premiere Pro, Final Cut Pro, and DaVinci Resolve, ensuring seamless storytelling and efficient workflow management.</p>
+      </div>
     </div>
-    <div class="process-card">
-      <div class="process-card-num">03</div>
-      <h3>Motion Graphics <em>&amp; Visual Effects</em></h3>
-      <p>Specialized artists integrate animations, overlays, and visual effects using Adobe After Effects, Cinema 4D, and professional compositing tools.</p>
+    <div class="wf-step reveal">
+      <div class="wf-node"><span>03</span></div>
+      <div class="wf-card">
+        <span class="wf-tag">Motion</span>
+        <h3>Motion Graphics <em>&amp; Visual Effects</em></h3>
+        <p>Specialized artists integrate animations, overlays, and visual effects using Adobe After Effects, Cinema 4D, and professional compositing tools.</p>
+      </div>
     </div>
-    <div class="process-card">
-      <div class="process-card-num">04</div>
-      <h3>Color Correction <em>&amp; Grading</em></h3>
-      <p>Colorists enhance visual tone and cinematic quality using DaVinci Resolve advanced grading tools, ensuring brand-consistent visual identity across every frame.</p>
+    <div class="wf-step reveal">
+      <div class="wf-node"><span>04</span></div>
+      <div class="wf-card">
+        <span class="wf-tag">Color</span>
+        <h3>Color Correction <em>&amp; Grading</em></h3>
+        <p>Colorists enhance visual tone and cinematic quality using DaVinci Resolve advanced grading tools, ensuring brand-consistent visual identity across every frame.</p>
+      </div>
     </div>
-    <div class="process-card">
-      <div class="process-card-num">05</div>
-      <h3>Audio <em>Engineering</em></h3>
-      <p>Sound engineers enhance clarity, mix music, and balance audio levels using Adobe Audition and AI audio enhancement platforms for professional sound quality.</p>
+    <div class="wf-step reveal">
+      <div class="wf-node"><span>05</span></div>
+      <div class="wf-card">
+        <span class="wf-tag">Audio</span>
+        <h3>Audio <em>Engineering</em></h3>
+        <p>Sound engineers enhance clarity, mix music, and balance audio levels using Adobe Audition and AI audio enhancement platforms for professional sound quality.</p>
+      </div>
     </div>
-    <div class="process-card">
-      <div class="process-card-num">06</div>
-      <h3>Client Review <em>&amp; Revisions</em></h3>
-      <p>Using Frame.io, clients provide frame-specific feedback directly on the video timeline &mdash; enabling precise revisions with minimal back-and-forth.</p>
+    <div class="wf-step reveal">
+      <div class="wf-node"><span>06</span></div>
+      <div class="wf-card">
+        <span class="wf-tag">Review</span>
+        <h3>Client Review <em>&amp; Revisions</em></h3>
+        <p>Using Frame.io, clients provide frame-specific feedback directly on the video timeline &mdash; enabling precise revisions with minimal back-and-forth.</p>
+      </div>
     </div>
-    <div class="process-card">
-      <div class="process-card-num">07</div>
-      <h3>Multi-Platform <em>Delivery</em></h3>
-      <p>Final videos exported and optimized for social media, YouTube, websites, advertising campaigns, and broadcast channels &mdash; ready to go live.</p>
+    <div class="wf-step reveal">
+      <div class="wf-node"><span>07</span></div>
+      <div class="wf-card">
+        <span class="wf-tag">Deliver</span>
+        <h3>Multi-Platform <em>Delivery</em></h3>
+        <p>Final videos exported and optimized for social media, YouTube, websites, advertising campaigns, and broadcast channels &mdash; ready to go live.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -3163,7 +3366,8 @@
 
 <!-- --- LOCATIONS --- -->
 <section class="locations-section" id="locations">
-  <div class="reveal">
+  <div class="locations-inner">
+   <div class="reveal loc-content">
     <div class="section-eyebrow">Service Locations</div>
     <h2 class="section-title">Professional Video Editing <em>Services Near You.</em></h2>
     <p class="section-sub">Cirova Studio provides professional video editing services to clients across major cities in India and internationally. Our remote-first model ensures brands receive the same quality service regardless of location.</p>
@@ -3211,6 +3415,24 @@
         </div>
       </div>
     </div>
+   </div>
+
+   <div class="reveal loc-visual" aria-hidden="true">
+     <div class="loc-globe">
+       <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&auto=format&fit=crop" alt="World map showing Cirova Studio's global service reach">
+       <span class="loc-scan"></span>
+       <span class="loc-ping p1"></span>
+       <span class="loc-ping p2"></span>
+       <span class="loc-ping p3"></span>
+       <span class="loc-ping p4"></span>
+       <span class="loc-ping p5"></span>
+       <div class="loc-globe-chip"><span class="pip"></span>REMOTE-FIRST WORLDWIDE</div>
+     </div>
+     <div class="loc-stat">
+       <div class="loc-stat-num">6+</div>
+       <div class="loc-stat-lbl">Cities served across India &amp; beyond</div>
+     </div>
+   </div>
   </div>
 </section>
 
@@ -3386,6 +3608,8 @@
     </div>
   </form>
 </section>
+<div class="cs-tm-band"><span class="cs-tm">Cirova Studio<sup>&trade;</sup></span></div>
+
 
 <footer>
     <div class="footer-top">
@@ -3396,20 +3620,20 @@
       </a>
       <p class="footer-tagline">A growth-focused marketing partner delivering strategy, creative production, and measurable results for modern brands.</p>
       <div class="footer-socials">
-        <a href="#" class="social-link" data-cursor>IG</a>
-        <a href="#" class="social-link" data-cursor>IN</a>
-        <a href="#" class="social-link" data-cursor>FB</a>
+        <a href="contact.html" class="social-link" data-cursor>IG</a>
+        <a href="contact.html" class="social-link" data-cursor>IN</a>
+        <a href="contact.html" class="social-link" data-cursor>FB</a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
         <li><a href="video-editing-services.html">Video Editing</a></li>
-        <li><a href="video-editing-services.html">Social Media Management</a></li>
-        <li><a href="video-editing-services.html">Website Development</a></li>
-        <li><a href="video-editing-services.html">Performance Ads</a></li>
-        <li><a href="video-editing-services.html">SEO &amp; Content</a></li>
-        <li><a href="video-editing-services.html">Brand Design</a></li>
+        <li><a href="smm-services.html">Social Media Management</a></li>
+        <li><a href="website-development.html">Website Development</a></li>
+        <li><a href="ppc-services.html">Performance Ads</a></li>
+        <li><a href="digital-marketing-services.html">SEO &amp; Content</a></li>
+        <li><a href="contact.html">Brand Design</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -3435,8 +3659,8 @@
   <div class="footer-bottom">
     <p>&copy; 2026 Cirova Studio. All rights reserved.</p>
     <div style="display: flex; gap: 1.5rem;">
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
+      <a href="contact.html">Privacy policy</a>
+      <a href="contact.html">Terms of service</a>
     </div>
   </div>
 </footer>
@@ -3629,7 +3853,7 @@
   }
 
   /* --- SMOOTH SCROLL FOR ANCHOR LINKS --- */
-  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
+  document.querySelectorAll('a[href^="#"]:not([href="contact.html"])').forEach(link => {
     link.addEventListener('click', e => {
       const target = document.querySelector(link.getAttribute('href'));
       if (target) {

@@ -2728,6 +2728,15 @@
   .nav-dropdown-menu .dd-title { transition: color 0.2s; }
   .nav-dropdown-menu a:hover .dd-title { color: var(--highlight); }
 
+
+  /* === CIROVA STUDIO TRADEMARK LINE === */
+  .cs-tm-band { text-align: center; padding: 0.5rem 5% 3.5rem; }
+  .cs-tm {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 1.6rem; color: var(--muted); letter-spacing: 0.01em;
+  }
+  .cs-tm sup { font-size: 0.5em; }
+
 </style>
 
 </head>
@@ -3000,6 +3009,8 @@
     </div>
   </form>
 </section>
+<div class="cs-tm-band"><span class="cs-tm">Cirova Studio<sup>&trade;</sup></span></div>
+
 
 <!-- --- FAQ --- -->
 <section id="faq">
@@ -3082,20 +3093,20 @@
       </a>
       <p class="footer-tagline">A growth-focused marketing partner delivering strategy, creative production, and measurable results for modern brands.</p>
       <div class="footer-socials">
-        <a href="#" class="social-link" data-cursor>IG</a>
-        <a href="#" class="social-link" data-cursor>IN</a>
-        <a href="#" class="social-link" data-cursor>FB</a>
+        <a href="contact.html" class="social-link" data-cursor>IG</a>
+        <a href="contact.html" class="social-link" data-cursor>IN</a>
+        <a href="contact.html" class="social-link" data-cursor>FB</a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
         <li><a href="video-editing-services.html">Video Editing</a></li>
-        <li><a href="video-editing-services.html">Social Media Management</a></li>
-        <li><a href="video-editing-services.html">Website Development</a></li>
-        <li><a href="video-editing-services.html">Performance Ads</a></li>
-        <li><a href="video-editing-services.html">SEO &amp; Content</a></li>
-        <li><a href="video-editing-services.html">Brand Design</a></li>
+        <li><a href="smm-services.html">Social Media Management</a></li>
+        <li><a href="website-development.html">Website Development</a></li>
+        <li><a href="ppc-services.html">Performance Ads</a></li>
+        <li><a href="digital-marketing-services.html">SEO &amp; Content</a></li>
+        <li><a href="contact.html">Brand Design</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -3313,7 +3324,7 @@
   }
 
   /* --- SMOOTH SCROLL FOR ANCHOR LINKS --- */
-  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
+  document.querySelectorAll('a[href^="#"]:not([href="contact.html"])').forEach(link => {
     link.addEventListener('click', e => {
       const target = document.querySelector(link.getAttribute('href'));
       if (target) {
