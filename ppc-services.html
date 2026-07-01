@@ -3870,31 +3870,5 @@
 </script>
 
 
-<script>
-/* Services dropdown: click to pin open (plus hover), close on outside click or selection */
-(function(){
-  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
-    var toggle = dd.querySelector('.nav-dropdown-toggle');
-    if(!toggle) return;
-    toggle.addEventListener('click', function(e){
-      e.preventDefault(); e.stopPropagation();
-      var open = dd.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    dd.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
-      a.addEventListener('click', function(){ dd.classList.remove('open'); });
-    });
-  });
-  document.addEventListener('click', function(e){
-    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
-      if(!dd.contains(e.target)){
-        dd.classList.remove('open');
-        var t = dd.querySelector('.nav-dropdown-toggle');
-        if(t) t.setAttribute('aria-expanded','false');
-      }
-    });
-  });
-})();
-</script>
 </body>
 </html>
