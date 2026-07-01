@@ -2067,8 +2067,8 @@
   .nav-dropdown-menu::before {
     content: "";
     position: absolute;
-    top: -0.8rem; left: 0; right: 0;
-    height: 0.8rem;
+    top: -1.4rem; left: -1rem; right: -1rem;
+    height: 1.4rem;
   }
   .nav-dropdown-menu a {
     display: flex;
@@ -3308,7 +3308,6 @@
     box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7),
                 0 0 0 1px rgba(178,84,168,0.12),
                 inset 0 1px 0 rgba(255,255,255,0.05);
-    overflow: hidden;
     transform: translateX(-50%) translateY(10px) scale(0.97);
     transform-origin: top center;
   }
@@ -4339,5 +4338,32 @@
 
 </script>
 
+
+<script>
+/* Services dropdown: click to pin open (plus hover), close on outside click or selection */
+(function(){
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var toggle = dd.querySelector('.nav-dropdown-toggle');
+    if(!toggle) return;
+    toggle.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var open = dd.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    dd.querySelectorAll('.nav-dropdown-menu a').forEach(function(a){
+      a.addEventListener('click', function(){ dd.classList.remove('open'); });
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)){
+        dd.classList.remove('open');
+        var t = dd.querySelector('.nav-dropdown-toggle');
+        if(t) t.setAttribute('aria-expanded','false');
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
