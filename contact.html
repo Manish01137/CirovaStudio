@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0E0A14">
+<title>Contact Cirova Studio | Get a Free Quote</title>
+<meta name="description" content="Get in touch with Cirova Studio. Request a free quote for video editing, social media management, website development, PPC, and digital marketing services.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Contact Cirova Studio | Get a Free Quote">
+<meta property="og:description" content="Get in touch with Cirova Studio. Request a free quote for video editing, social media management, website development, PPC, and digital marketing services.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="CS%20logo.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="CS%20logo.png">
+<link rel="apple-touch-icon" href="CS%20logo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -2491,7 +2510,14 @@
 
   /* Responsive */
   @media (max-width: 1100px) {
-    .chat-mock { display: none; }
+    .chat-mock {
+      position: relative;
+      right: auto; top: auto; bottom: auto;
+      width: 100%;
+      max-width: 380px;
+      height: 480px;
+      margin: 2.5rem auto 0;
+    }
     .contact-methods { grid-template-columns: 1fr; max-width: 480px; gap: 1rem; }
     .contact-image-strip { grid-template-columns: 1fr 1fr; }
     .cf-row { grid-template-columns: 1fr; }
@@ -2643,7 +2669,70 @@
   }
   .mobile-dd-menu a:hover { color: var(--magenta) !important; }
 
+
+  /* === PREMIUM SERVICES DROPDOWN (enhanced) === */
+  .nav-dropdown-menu {
+    width: 360px;
+    padding: 0.5rem;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(31,23,48,0.98), rgba(16,11,22,0.98));
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7),
+                0 0 0 1px rgba(178,84,168,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+    overflow: hidden;
+    transform: translateX(-50%) translateY(10px) scale(0.97);
+    transform-origin: top center;
+  }
+  .nav-dropdown-menu::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 1.2rem; right: 1.2rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--magenta-2), transparent);
+    opacity: 0.7;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  .nav-dropdown-menu a {
+    position: relative;
+    padding: 0.7rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: background 0.25s var(--ease-out), border-color 0.25s, transform 0.25s var(--ease-out);
+  }
+  .nav-dropdown-menu a::after {
+    content: "\2192";
+    margin-left: auto;
+    color: var(--magenta-2);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.25s, transform 0.25s var(--ease-out);
+    font-size: 0.95rem;
+  }
+  .nav-dropdown-menu a:hover {
+    background: linear-gradient(135deg, rgba(178,84,168,0.16), rgba(126,77,140,0.10));
+    border-color: rgba(178,84,168,0.3);
+    transform: translateX(2px);
+  }
+  .nav-dropdown-menu a:hover::after { opacity: 1; transform: translateX(0); }
+  .nav-dropdown-menu .dd-ic {
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+  }
+  .nav-dropdown-menu a:hover .dd-ic {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 10px 26px rgba(178,84,168,0.5);
+  }
+  .nav-dropdown-menu .dd-title { transition: color 0.2s; }
+  .nav-dropdown-menu a:hover .dd-title { color: var(--highlight); }
+
 </style>
+
+</head>
+<body>
+
 
 <!-- --- SCROLL PROGRESS --- -->
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -2651,7 +2740,7 @@
 <!-- --- PAGE LOADER --- -->
 <div class="page-loader" id="pageLoader">
   <div class="page-loader-logo">
-    <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="">
+    <img src="CS%20logo.png" alt="">
   </div>
 </div>
 
@@ -2663,8 +2752,7 @@
 <!-- HEADER -->
 <header id="siteHeader">
   <a href="index.html" class="logo-link" data-cursor>
-    <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
-    <span class="logo-text">Cirova<em>Studio</em></span>
+    <img src="CS%20logo.png" alt="Cirova Studio">
   </a>
   <nav>
     <a href="index.html" data-cursor>Home</a>
@@ -2989,7 +3077,7 @@
     <div class="footer-top">
     <div class="footer-brand">
       <a href="index.html" class="logo-link" data-cursor>
-        <img src="https://cirovastudio.com/wp-content/uploads/2026/04/CS-logo.png" alt="Cirova Studio">
+        <img src="CS%20logo.png" alt="Cirova Studio">
         <span class="logo-text">Cirova<em>Studio</em></span>
       </a>
       <p class="footer-tagline">A growth-focused marketing partner delivering strategy, creative production, and measurable results for modern brands.</p>
@@ -3237,3 +3325,6 @@
 })();
 
 </script>
+
+</body>
+</html>
