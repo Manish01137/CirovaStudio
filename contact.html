@@ -500,6 +500,8 @@
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
+    padding-bottom: 0.14em;
+    margin-bottom: -0.14em;
   }
   .hero h1 .word > span {
     display: inline-block;
@@ -1609,7 +1611,7 @@
 
   footer h4 {
     font-family: var(--font-display);
-    font-style: italic;
+    font-style: normal;
     font-size: 1.05rem;
     color: var(--text);
     margin-bottom: 1.2rem;
@@ -2640,7 +2642,7 @@
     background: none;
     border: none;
     color: var(--text);
-    font-family: inherit;
+    font-family: var(--font-display);
     font-size: 1.6rem;
     text-align: left;
     padding: 0.6rem 0;
@@ -2663,9 +2665,10 @@
   .mobile-dd.open .mobile-dd-menu { max-height: 360px; }
   .mobile-dd-menu a {
     display: block;
-    padding: 0.45rem 0;
+    padding: 0.5rem 0;
     color: var(--muted) !important;
-    font-size: 1rem !important;
+    font-family: var(--font-display) !important;
+    font-size: 1.3rem !important;
   }
   .mobile-dd-menu a:hover { color: var(--magenta) !important; }
 
@@ -2771,10 +2774,10 @@
       </button>
       <div class="nav-dropdown-menu" role="menu">
         <a href="smm-services.html" role="menuitem">
-          <span class="dd-ic">SM</span>
+          <span class="dd-ic">CW</span>
           <span class="dd-text">
-            <span class="dd-title">SMM Services</span>
-            <span class="dd-sub">Social media management &amp; growth</span>
+            <span class="dd-title">Content Writing</span>
+            <span class="dd-sub">SEO blogs, copywriting &amp; content</span>
           </span>
         </a>
         <a href="video-editing-services.html" role="menuitem">
@@ -2823,7 +2826,7 @@
   <div class="mobile-dd">
     <button type="button" class="mobile-dd-toggle">Services <span class="dd-caret">&#9662;</span></button>
     <div class="mobile-dd-menu">
-      <a href="smm-services.html">SMM Services</a>
+      <a href="smm-services.html">Content Writing</a>
       <a href="video-editing-services.html">Video Editing</a>
       <a href="website-development.html">Website Development</a>
       <a href="ppc-services.html">PPC Services</a>
@@ -2934,7 +2937,7 @@
     <a href="mailto:cirovastudio@gmail.com" class="cm-card tilt-on-hover" data-cursor>
       <div class="cm-icon">@</div>
       <div class="cm-label">Email Us</div>
-      <div class="cm-value">cirovastudio<br>@gmail.com</div>
+      <div class="cm-value" style="white-space:nowrap; font-size:1.05rem;">cirovastudio@gmail.com</div>
       <div class="cm-sub">For project inquiries &amp; collaborations</div>
     </a>
     <a href="tel:+919877147660" class="cm-card tilt-on-hover" data-cursor>
@@ -2955,11 +2958,11 @@
 <!-- --- IMAGE STRIP (premium feel) --- -->
 <div class="contact-image-strip reveal" aria-hidden="true">
   <div class="cis">
-    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80&auto=format&fit=crop" alt="">
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop" alt="Marketing team planning strategy">
     <span class="lbl">Strategy</span>
   </div>
   <div class="cis">
-    <img src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?w=600&q=80&auto=format&fit=crop" alt="">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80&auto=format&fit=crop" alt="Team collaborating together">
     <span class="lbl">Collaboration</span>
   </div>
   <div class="cis">
@@ -3101,7 +3104,7 @@
       <h4>Services</h4>
       <ul>
         <li><a href="video-editing-services.html">Video Editing</a></li>
-        <li><a href="smm-services.html">Social Media Management</a></li>
+        <li><a href="smm-services.html">Content Writing</a></li>
         <li><a href="website-development.html">Website Development</a></li>
         <li><a href="ppc-services.html">Performance Ads</a></li>
         <li><a href="digital-marketing-services.html">SEO &amp; Content</a></li>

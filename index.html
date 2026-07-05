@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0E0A14">
-<title>Cirova Studio | Video Editing, SMM, Content Writing & Website Design Agency</title>
+<title>Cirova Studio | Video Editing, Content Writing & Website Design Agency</title>
 <meta name="description" content="Cirova Studio is a digital marketing agency offering video editing, social media management, content writing, website design, and more for growing brands.">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Cirova Studio | Video Editing, SMM, Content Writing & Website Design Agency">
+<meta property="og:title" content="Cirova Studio | Video Editing, Content Writing & Website Design Agency">
 <meta property="og:description" content="Cirova Studio is a digital marketing agency offering video editing, social media management, content writing, website design, and more for growing brands.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="CS%20logo.png">
@@ -500,6 +500,8 @@
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
+    padding-bottom: 0.14em;
+    margin-bottom: -0.14em;
   }
   .hero h1 .word > span {
     display: inline-block;
@@ -1609,7 +1611,7 @@
 
   footer h4 {
     font-family: var(--font-display);
-    font-style: italic;
+    font-style: normal;
     font-size: 1.05rem;
     color: var(--text);
     margin-bottom: 1.2rem;
@@ -2127,7 +2129,7 @@
     background: none;
     border: none;
     color: var(--text);
-    font-family: inherit;
+    font-family: var(--font-display);
     font-size: 1.6rem;
     text-align: left;
     padding: 0.6rem 0;
@@ -2150,9 +2152,10 @@
   .mobile-dd.open .mobile-dd-menu { max-height: 360px; }
   .mobile-dd-menu a {
     display: block;
-    padding: 0.45rem 0;
+    padding: 0.5rem 0;
     color: var(--muted) !important;
-    font-size: 1rem !important;
+    font-family: var(--font-display) !important;
+    font-size: 1.3rem !important;
   }
   .mobile-dd-menu a:hover { color: var(--magenta) !important; }
 
@@ -2274,6 +2277,35 @@
   }
   .cs-tm sup { font-size: 0.5em; }
 
+
+  /* === SEO SECTION VISUAL (real image) === */
+  .seo-visual {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 40px 90px -20px rgba(0,0,0,0.7), 0 0 60px rgba(178,84,168,0.12);
+    aspect-ratio: 4 / 3;
+  }
+  .seo-visual img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) brightness(0.9); }
+  .seo-visual::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(178,84,168,0.16), transparent 55%, rgba(14,10,20,0.55));
+    pointer-events: none;
+  }
+  .seo-visual-tag {
+    position: absolute; bottom: 1rem; left: 1rem;
+    background: rgba(14,10,20,0.82);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .seo-visual-tag .pip { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 10px #4ADE80; }
+
 </style>
 </head>
 <body>
@@ -2305,10 +2337,10 @@
       </button>
       <div class="nav-dropdown-menu" role="menu">
         <a href="smm-services.html" role="menuitem">
-          <span class="dd-ic">SM</span>
+          <span class="dd-ic">CW</span>
           <span class="dd-text">
-            <span class="dd-title">SMM Services</span>
-            <span class="dd-sub">Social media management &amp; growth</span>
+            <span class="dd-title">Content Writing</span>
+            <span class="dd-sub">SEO blogs, copywriting &amp; content</span>
           </span>
         </a>
         <a href="video-editing-services.html" role="menuitem">
@@ -2357,7 +2389,7 @@
   <div class="mobile-dd">
     <button type="button" class="mobile-dd-toggle">Services <span class="dd-caret">&#9662;</span></button>
     <div class="mobile-dd-menu">
-      <a href="smm-services.html">SMM Services</a>
+      <a href="smm-services.html">Content Writing</a>
       <a href="video-editing-services.html">Video Editing</a>
       <a href="website-development.html">Website Development</a>
       <a href="ppc-services.html">PPC Services</a>
@@ -2860,53 +2892,9 @@
       <p class="seo-para">That is why Cirova Studio focuses on clear service positioning, topic relevance, search-intent-based content, locally relevant messaging and conversion-focused pages that improve discoverability for both users and search systems.</p>
     </div>
 
-    <div class="seo-cards reveal">
-      <!-- Google AI Overview mock -->
-      <div class="seo-card seo-card-1">
-        <div class="seo-card-head">
-          <span class="seo-card-icon" style="background: linear-gradient(135deg, #4285f4, #ea4335);">G</span>
-          <span class="seo-card-title">Google AI Overview</span>
-          <span class="seo-card-dot"></span>
-        </div>
-        <div class="seo-card-body">
-          <div class="seo-line" style="width: 92%"></div>
-          <div class="seo-line" style="width: 78%"></div>
-          <div class="seo-line typing" style="width: 60%"><span></span><span></span><span></span></div>
-        </div>
-        <div class="seo-card-tag">AI-generated answer</div>
-      </div>
-
-      <!-- Local / Maps mock -->
-      <div class="seo-card seo-card-2">
-        <div class="seo-card-head">
-          <span class="seo-card-icon" style="background: linear-gradient(135deg, #34a853, #4caf50);">&#128205;</span>
-          <span class="seo-card-title">Local Discovery</span>
-          <span class="seo-card-dot"></span>
-        </div>
-        <div class="seo-map">
-          <div class="seo-map-pin"></div>
-          <div class="seo-map-line"></div>
-          <div class="seo-map-line seo-map-line-2"></div>
-        </div>
-        <div class="seo-card-tag">Maps + Near-me</div>
-      </div>
-
-      <!-- Social discovery mock -->
-      <div class="seo-card seo-card-3">
-        <div class="seo-card-head">
-          <span class="seo-card-icon" style="background: linear-gradient(135deg, #f56040, #e1306c, #833ab4);">&#9679;</span>
-          <span class="seo-card-title">Social Discovery</span>
-          <span class="seo-card-dot"></span>
-        </div>
-        <div class="seo-card-body">
-          <div class="seo-social-stats">
-            <div><strong>12.4k</strong><em>views</em></div>
-            <div><strong>823</strong><em>likes</em></div>
-            <div><strong>+38%</strong><em>reach</em></div>
-          </div>
-        </div>
-        <div class="seo-card-tag">Reels + Posts + Reach</div>
-      </div>
+    <div class="seo-visual reveal">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&auto=format&fit=crop" alt="Search, analytics and discovery dashboard">
+      <div class="seo-visual-tag"><span class="pip"></span>SEARCH &middot; AI &middot; LOCAL &middot; SOCIAL</div>
     </div>
   </div>
 </section>
@@ -3084,7 +3072,7 @@
       <h4>Services</h4>
       <ul>
         <li><a href="video-editing-services.html">Video Editing</a></li>
-        <li><a href="smm-services.html">Social Media Management</a></li>
+        <li><a href="smm-services.html">Content Writing</a></li>
         <li><a href="website-development.html">Website Development</a></li>
         <li><a href="ppc-services.html">Performance Ads</a></li>
         <li><a href="digital-marketing-services.html">SEO &amp; Content</a></li>

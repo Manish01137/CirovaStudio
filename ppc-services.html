@@ -500,6 +500,8 @@
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
+    padding-bottom: 0.14em;
+    margin-bottom: -0.14em;
   }
   .hero h1 .word > span {
     display: inline-block;
@@ -1609,7 +1611,7 @@
 
   footer h4 {
     font-family: var(--font-display);
-    font-style: italic;
+    font-style: normal;
     font-size: 1.05rem;
     color: var(--text);
     margin-bottom: 1.2rem;
@@ -2122,7 +2124,7 @@
     background: none;
     border: none;
     color: var(--text);
-    font-family: inherit;
+    font-family: var(--font-display);
     font-size: 1.6rem;
     text-align: left;
     padding: 0.6rem 0;
@@ -2145,9 +2147,10 @@
   .mobile-dd.open .mobile-dd-menu { max-height: 360px; }
   .mobile-dd-menu a {
     display: block;
-    padding: 0.45rem 0;
+    padding: 0.5rem 0;
     color: var(--muted) !important;
-    font-size: 1rem !important;
+    font-family: var(--font-display) !important;
+    font-size: 1.3rem !important;
   }
   .mobile-dd-menu a:hover { color: var(--magenta) !important; }
 
@@ -3053,10 +3056,10 @@
       </button>
       <div class="nav-dropdown-menu" role="menu">
         <a href="smm-services.html" role="menuitem">
-          <span class="dd-ic">SM</span>
+          <span class="dd-ic">CW</span>
           <span class="dd-text">
-            <span class="dd-title">SMM Services</span>
-            <span class="dd-sub">Social media management &amp; growth</span>
+            <span class="dd-title">Content Writing</span>
+            <span class="dd-sub">SEO blogs, copywriting &amp; content</span>
           </span>
         </a>
         <a href="video-editing-services.html" role="menuitem">
@@ -3104,7 +3107,7 @@
   <div class="mobile-dd">
     <button type="button" class="mobile-dd-toggle">Services <span class="dd-caret">&#9662;</span></button>
     <div class="mobile-dd-menu">
-      <a href="smm-services.html">SMM Services</a>
+      <a href="smm-services.html">Content Writing</a>
       <a href="video-editing-services.html">Video Editing</a>
       <a href="website-development.html">Website Development</a>
       <a href="ppc-services.html">PPC Services</a>
@@ -3215,7 +3218,7 @@
       <!-- Animated cursor pointing to highlighted ad -->
       <svg class="serp-cursor" viewBox="0 0 18 18" fill="currentColor"><path d="M2 2l5 14 2-6 6-2-13-6z"/></svg>
     </div>
-    <div class="serp-chip tl"><span class="pip"></span>4.2x ROAS &middot; LIVE</div>
+    <div class="serp-chip tl"><span class="pip"></span>7.2x ROAS &middot; LIVE</div>
     <div class="serp-chip br"><span class="arrow">&uarr;</span>+340% LEADS</div>
   </div>
 </section>
@@ -3271,13 +3274,13 @@
 
   <div class="ppc-cap-grid reveal" style="text-align: left;">
     <div class="ppc-cap tilt-on-hover">
-      <span class="metric-tag">+4.2x ROAS</span>
+      <span class="metric-tag">+7.2x ROAS</span>
       <div class="num">01 / Google Ads</div>
       <h4>Google Ads <em>Campaign Management</em></h4>
       <p>Our team manages search, display, and shopping campaigns through advanced targeting and bidding strategies. Businesses looking for reliable Google Ads services trust our structured campaign optimization.</p>
     </div>
     <div class="ppc-cap tilt-on-hover">
-      <span class="metric-tag">+38% CTR</span>
+      <span class="metric-tag">+168% CTR</span>
       <div class="num">02 / Meta Ads</div>
       <h4>Meta <em>Advertising Campaigns</em></h4>
       <p>We run targeted Meta PPC campaigns across Facebook and Instagram to reach the right audience segments and improve brand engagement.</p>
@@ -3336,32 +3339,32 @@
     <div class="perf-grid">
       <div class="perf-kpi">
         <div class="lbl">Total Spend</div>
-        <div class="val">&#8377;48L<em>+</em></div>
-        <div class="delta">22% efficiency</div>
+        <div class="val">&#8377;5.2Cr<em>+</em></div>
+        <div class="delta">+38% efficiency</div>
         <div class="mini-bar"><div class="fill" style="--w: 78%;"></div></div>
       </div>
       <div class="perf-kpi">
         <div class="lbl">Impressions</div>
-        <div class="val">12.4M<em>+</em></div>
-        <div class="delta">340% MoM</div>
+        <div class="val">243M<em>+</em></div>
+        <div class="delta">+312% MoM</div>
         <div class="mini-bar"><div class="fill" style="--w: 94%;"></div></div>
       </div>
       <div class="perf-kpi">
         <div class="lbl">Conversions</div>
-        <div class="val">3,820<em></em></div>
+        <div class="val">184,300<em>+</em></div>
         <div class="delta">68% rate</div>
         <div class="mini-bar"><div class="fill" style="--w: 68%;"></div></div>
       </div>
       <div class="perf-kpi">
         <div class="lbl">Avg ROAS</div>
-        <div class="val">4.2<em>x</em></div>
+        <div class="val">7.2<em>x</em></div>
         <div class="delta">Best in class</div>
         <div class="mini-bar"><div class="fill" style="--w: 88%;"></div></div>
       </div>
 
       <div class="perf-chart">
         <h5>Click-Through Rate &middot; Last 30 Days</h5>
-        <div class="big">+340% <em>vs. prior period</em></div>
+        <div class="big">+168% <em>vs. prior period</em></div>
         <svg viewBox="0 0 600 110" preserveAspectRatio="none">
           <defs>
             <linearGradient id="ppcGradFill" x1="0" y1="0" x2="0" y2="1">
@@ -3613,7 +3616,7 @@
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="smm-services.html">SMM Services</a></li>
+        <li><a href="smm-services.html">Content Writing</a></li>
         <li><a href="video-editing-services.html">Video Editing</a></li>
         <li><a href="website-development.html">Website Development</a></li>
         <li><a href="ppc-services.html">PPC Services</a></li>
